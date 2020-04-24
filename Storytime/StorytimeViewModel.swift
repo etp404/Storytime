@@ -21,12 +21,4 @@ class StorytimeViewModel: NSObject {
             StoryForView(title:$0.title)
         }
     }
-    
-    func xOffsetAsPercentageOfView(story:StoryForView) -> Double {
-        return 0.0
-    }
-    
-    func yOffsetAsPercentageOfView(story:StoryForView) -> Double {
-        return 0.0
-       }
 }

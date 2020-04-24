@@ -18,8 +18,6 @@ struct StoryListView: View {
                ZStack {
                 ForEach(storytimeViewModel.stories(), id: \.self) {story in
                     Card(story:story)
-                        .offset(x: storytimeViewModel.xOffsetAsPercentageOfView(story),
-                                y: storytimeViewModel.yOffsetAsPercentageOfView(story))
                 }
            }
        }
