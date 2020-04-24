@@ -11,24 +11,21 @@ import XCTest
 
 class StorytimeTests: XCTestCase {
 
-    override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
-    }
-
-    override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-    }
-
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-    }
-
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
+    class MockStorytimeModel : StorytimeModel {
+        func stories() -> [Story] {
+            return [Story(title:"A"),
+                    Story(title:"B")]
         }
     }
+    
+    func testGivenModelReturnsStories_thenStoriesCanBeReturned() throws {
+        self.continueAfterFailure = false;
 
+        let viewModel = StorytimeViewModel(model:MockStorytimeModel())
+        
+
+        XCTAssertEqual(viewModel.stories().count, 2)
+        XCTAssertEqual(viewModel.stories()[0].title, "A")
+        XCTAssertEqual(viewModel.stories()[1].title, "B")
+    }
 }
