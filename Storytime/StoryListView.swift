@@ -20,15 +20,18 @@ struct StoryListView: View {
     let numberOfCardsToShow = 6
     
     var body: some View {
-           NavigationView {
-               ZStack {
-                ForEach(self.stories().indices) {index in
-                    Card(story:self.stories()[index])
-                    .offset(x: CGFloat(index * 5), y: CGFloat(index * 10))
+        GeometryReader { geometry in
+            NavigationView {
+                ZStack {
+                    ForEach(self.stories().indices) {index in
+                        Card(story:self.stories()[index])
+                            .offset(x: CGFloat(index * 5), y: CGFloat(index * 10))
+                            .animation(.interactiveSpring())
+                    }
+                    .offset(x: -CGFloat(self.numberOfCardsToShow/2 * 5), y: -CGFloat(self.numberOfCardsToShow/2 * 10))
                 }
-               .offset(x: -CGFloat(numberOfCardsToShow/2 * 5), y: -CGFloat(numberOfCardsToShow/2 * 10))
-           }
-       }
+            }
+        }
     }
 }
 
