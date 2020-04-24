@@ -26,9 +26,9 @@ struct StoryListView: View {
                     ForEach(self.stories().indices) {index in
                         Card(story:self.stories()[index])
                             .offset(x: CGFloat(index * 5), y: CGFloat(index * 10))
-                            .animation(.interactiveSpring())
                     }
                     .offset(x: -CGFloat(self.numberOfCardsToShow/2 * 5), y: -CGFloat(self.numberOfCardsToShow/2 * 10))
+                    
                 }
             }
         }
@@ -36,6 +36,8 @@ struct StoryListView: View {
 }
 
 struct Card : View {
+    @State var translation: CGSize = .zero
+
     let story:StoryForView
     
     init(story:StoryForView) {
@@ -54,6 +56,18 @@ struct Card : View {
             .background(Color.white)
             .cornerRadius(10)
             .shadow(radius: 5)
+            .offset(x: self.translation.width, y: self.translation.height)
+            .animation(.interactiveSpring())
+            .rotationEffect(.degrees(Double(self.translation.width / geometry.size.width) * 25), anchor: .bottom)
+            .gesture(
+                DragGesture()
+               .onChanged { value in
+                        self.translation = value.translation
+                }
+                .onEnded { value in
+                    self.translation = .zero
+                }
+            )
         }
     }
 }
