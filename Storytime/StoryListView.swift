@@ -11,15 +11,19 @@ import SwiftUI
 
 struct StoryListView: View {
 
-    @State var storytimeViewModel = StorytimeViewModel(model:StubbedStorytimeModel())
-   
+    @State var viewModel = StoryListViewModel(model:StubbedStorytimeModel())
+    
+    func stories() -> [StoryForView]{
+        return self.viewModel.stories(limit:self.numberOfCardsToShow)
+    }
+    
     let numberOfCardsToShow = 6
     
     var body: some View {
            NavigationView {
                ZStack {
-                ForEach(storytimeViewModel.stories(limit:numberOfCardsToShow).indices) {index in
-                    Card(story:self.storytimeViewModel.stories(limit:self.numberOfCardsToShow)[index])
+                ForEach(self.stories().indices) {index in
+                    Card(story:self.stories()[index])
                     .offset(x: CGFloat(index * 5), y: CGFloat(index * 10))
                 }
                .offset(x: -CGFloat(numberOfCardsToShow/2 * 5), y: -CGFloat(numberOfCardsToShow/2 * 10))

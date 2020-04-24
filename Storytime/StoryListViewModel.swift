@@ -8,7 +8,7 @@
 
 import UIKit
 
-class StorytimeViewModel: NSObject {
+class StoryListViewModel: NSObject {
     
     let model: StorytimeModel
     

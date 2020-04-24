@@ -9,7 +9,7 @@
 import XCTest
 @testable import Storytime
 
-class StorytimeTests: XCTestCase {
+class StoryListTests: XCTestCase {
 
     class MockStorytimeModel : StorytimeModel {
         func stories() -> [Story] {
@@ -23,7 +23,7 @@ class StorytimeTests: XCTestCase {
     func testGivenModelReturnsStories_thenStoriesCanBeReturned() throws {
         self.continueAfterFailure = false;
 
-        let viewModel = StorytimeViewModel(model:MockStorytimeModel())
+        let viewModel = StoryListViewModel(model:MockStorytimeModel())
         
 
         XCTAssertEqual(viewModel.stories(limit:2).count, 2)
