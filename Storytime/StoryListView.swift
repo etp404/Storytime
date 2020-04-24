@@ -17,7 +17,18 @@ struct StoryListView: View {
            NavigationView {
                ZStack {
                 ForEach(storytimeViewModel.stories(), id: \.self) {story in
-                    Text(story.title)
+                    GeometryReader { geometry in
+                        VStack() {
+                            Text(story.title)
+                                .font(.title)
+                                .bold()
+                        }
+                        .padding(.horizontal)
+                        .frame(width:  geometry.size.width*0.8, height:  geometry.size.height*0.8, alignment: .center)
+                        .background(Color.white)
+                        .cornerRadius(10)
+                        .shadow(radius: 5)
+                    }
                 }
            }
        }
