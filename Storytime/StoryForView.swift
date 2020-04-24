@@ -8,7 +8,7 @@
 
 import UIKit
 
-struct StoryForView {
+struct StoryForView : Hashable {
     let title:String
     
     init(title:String) {

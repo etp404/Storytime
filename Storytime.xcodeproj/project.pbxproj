@@ -19,6 +19,8 @@
 		C9FD27032452DF1200F21EB8 /* StorytimeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9FD27022452DF1200F21EB8 /* StorytimeModel.swift */; };
 		C9FD27052452DF2D00F21EB8 /* StorytimeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9FD27042452DF2D00F21EB8 /* StorytimeViewModel.swift */; };
 		C9FD27072452E0C400F21EB8 /* StoryForView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9FD27062452E0C400F21EB8 /* StoryForView.swift */; };
+		C9FD270F24531B1F00F21EB8 /* StoryListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9FD270E24531B1F00F21EB8 /* StoryListView.swift */; };
+		C9FD271124531B5800F21EB8 /* StubbedStorytimeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9FD271024531B5800F21EB8 /* StubbedStorytimeModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +59,8 @@
 		C9FD27022452DF1200F21EB8 /* StorytimeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorytimeModel.swift; sourceTree = "<group>"; };
 		C9FD27042452DF2D00F21EB8 /* StorytimeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorytimeViewModel.swift; sourceTree = "<group>"; };
 		C9FD27062452E0C400F21EB8 /* StoryForView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryForView.swift; sourceTree = "<group>"; };
+		C9FD270E24531B1F00F21EB8 /* StoryListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryListView.swift; sourceTree = "<group>"; };
+		C9FD271024531B5800F21EB8 /* StubbedStorytimeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StubbedStorytimeModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,6 +122,8 @@
 				C9FD27022452DF1200F21EB8 /* StorytimeModel.swift */,
 				C9FD27042452DF2D00F21EB8 /* StorytimeViewModel.swift */,
 				C9FD27062452E0C400F21EB8 /* StoryForView.swift */,
+				C9FD270E24531B1F00F21EB8 /* StoryListView.swift */,
+				C9FD271024531B5800F21EB8 /* StubbedStorytimeModel.swift */,
 			);
 			path = Storytime;
 			sourceTree = "<group>";
@@ -282,9 +288,11 @@
 				C9FD26D12452DC1D00F21EB8 /* AppDelegate.swift in Sources */,
 				C9FD27052452DF2D00F21EB8 /* StorytimeViewModel.swift in Sources */,
 				C9FD26D32452DC1D00F21EB8 /* SceneDelegate.swift in Sources */,
+				C9FD271124531B5800F21EB8 /* StubbedStorytimeModel.swift in Sources */,
 				C9FD26D52452DC1D00F21EB8 /* ContentView.swift in Sources */,
 				C9FD27012452DEA300F21EB8 /* Story.swift in Sources */,
 				C9FD27072452E0C400F21EB8 /* StoryForView.swift in Sources */,
+				C9FD270F24531B1F00F21EB8 /* StoryListView.swift in Sources */,
 				C9FD27032452DF1200F21EB8 /* StorytimeModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
