@@ -13,8 +13,8 @@
 		C9FD26D72452DC2200F21EB8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C9FD26D62452DC2200F21EB8 /* Assets.xcassets */; };
 		C9FD26DA2452DC2200F21EB8 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C9FD26D92452DC2200F21EB8 /* Preview Assets.xcassets */; };
 		C9FD26DD2452DC2200F21EB8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C9FD26DB2452DC2200F21EB8 /* LaunchScreen.storyboard */; };
-		C9FD26E82452DC2200F21EB8 /* StoryTimeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9FD26E72452DC2200F21EB8 /* StoryTimeTests.swift */; };
-		C9FD26F32452DC2200F21EB8 /* StoryTimeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9FD26F22452DC2200F21EB8 /* StoryTimeUITests.swift */; };
+		C9FD26E82452DC2200F21EB8 /* StorytimeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9FD26E72452DC2200F21EB8 /* StorytimeTests.swift */; };
+		C9FD26F32452DC2200F21EB8 /* StorytimeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9FD26F22452DC2200F21EB8 /* StorytimeUITests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,7 +35,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		C9FD26CD2452DC1D00F21EB8 /* StoryTime.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StoryTime.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		C9FD26CD2452DC1D00F21EB8 /* Storytime.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Storytime.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C9FD26D02452DC1D00F21EB8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C9FD26D22452DC1D00F21EB8 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		C9FD26D42452DC1D00F21EB8 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -43,11 +43,11 @@
 		C9FD26D92452DC2200F21EB8 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		C9FD26DC2452DC2200F21EB8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C9FD26DE2452DC2200F21EB8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		C9FD26E32452DC2200F21EB8 /* StoryTimeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = StoryTimeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		C9FD26E72452DC2200F21EB8 /* StoryTimeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryTimeTests.swift; sourceTree = "<group>"; };
+		C9FD26E32452DC2200F21EB8 /* StorytimeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = StorytimeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		C9FD26E72452DC2200F21EB8 /* StorytimeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorytimeTests.swift; sourceTree = "<group>"; };
 		C9FD26E92452DC2200F21EB8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		C9FD26EE2452DC2200F21EB8 /* StoryTimeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = StoryTimeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		C9FD26F22452DC2200F21EB8 /* StoryTimeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryTimeUITests.swift; sourceTree = "<group>"; };
+		C9FD26EE2452DC2200F21EB8 /* StorytimeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = StorytimeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		C9FD26F22452DC2200F21EB8 /* StorytimeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorytimeUITests.swift; sourceTree = "<group>"; };
 		C9FD26F42452DC2200F21EB8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -79,9 +79,9 @@
 		C9FD26C42452DC1D00F21EB8 = {
 			isa = PBXGroup;
 			children = (
-				C9FD26CF2452DC1D00F21EB8 /* StoryTime */,
-				C9FD26E62452DC2200F21EB8 /* StoryTimeTests */,
-				C9FD26F12452DC2200F21EB8 /* StoryTimeUITests */,
+				C9FD26CF2452DC1D00F21EB8 /* Storytime */,
+				C9FD26E62452DC2200F21EB8 /* StorytimeTests */,
+				C9FD26F12452DC2200F21EB8 /* StorytimeUITests */,
 				C9FD26CE2452DC1D00F21EB8 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -89,14 +89,14 @@
 		C9FD26CE2452DC1D00F21EB8 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				C9FD26CD2452DC1D00F21EB8 /* StoryTime.app */,
-				C9FD26E32452DC2200F21EB8 /* StoryTimeTests.xctest */,
-				C9FD26EE2452DC2200F21EB8 /* StoryTimeUITests.xctest */,
+				C9FD26CD2452DC1D00F21EB8 /* Storytime.app */,
+				C9FD26E32452DC2200F21EB8 /* StorytimeTests.xctest */,
+				C9FD26EE2452DC2200F21EB8 /* StorytimeUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		C9FD26CF2452DC1D00F21EB8 /* StoryTime */ = {
+		C9FD26CF2452DC1D00F21EB8 /* Storytime */ = {
 			isa = PBXGroup;
 			children = (
 				C9FD26D02452DC1D00F21EB8 /* AppDelegate.swift */,
@@ -107,7 +107,7 @@
 				C9FD26DE2452DC2200F21EB8 /* Info.plist */,
 				C9FD26D82452DC2200F21EB8 /* Preview Content */,
 			);
-			path = StoryTime;
+			path = Storytime;
 			sourceTree = "<group>";
 		};
 		C9FD26D82452DC2200F21EB8 /* Preview Content */ = {
@@ -118,30 +118,30 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
-		C9FD26E62452DC2200F21EB8 /* StoryTimeTests */ = {
+		C9FD26E62452DC2200F21EB8 /* StorytimeTests */ = {
 			isa = PBXGroup;
 			children = (
-				C9FD26E72452DC2200F21EB8 /* StoryTimeTests.swift */,
+				C9FD26E72452DC2200F21EB8 /* StorytimeTests.swift */,
 				C9FD26E92452DC2200F21EB8 /* Info.plist */,
 			);
-			path = StoryTimeTests;
+			path = StorytimeTests;
 			sourceTree = "<group>";
 		};
-		C9FD26F12452DC2200F21EB8 /* StoryTimeUITests */ = {
+		C9FD26F12452DC2200F21EB8 /* StorytimeUITests */ = {
 			isa = PBXGroup;
 			children = (
-				C9FD26F22452DC2200F21EB8 /* StoryTimeUITests.swift */,
+				C9FD26F22452DC2200F21EB8 /* StorytimeUITests.swift */,
 				C9FD26F42452DC2200F21EB8 /* Info.plist */,
 			);
-			path = StoryTimeUITests;
+			path = StorytimeUITests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		C9FD26CC2452DC1D00F21EB8 /* StoryTime */ = {
+		C9FD26CC2452DC1D00F21EB8 /* Storytime */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = C9FD26F72452DC2200F21EB8 /* Build configuration list for PBXNativeTarget "StoryTime" */;
+			buildConfigurationList = C9FD26F72452DC2200F21EB8 /* Build configuration list for PBXNativeTarget "Storytime" */;
 			buildPhases = (
 				C9FD26C92452DC1D00F21EB8 /* Sources */,
 				C9FD26CA2452DC1D00F21EB8 /* Frameworks */,
@@ -151,14 +151,14 @@
 			);
 			dependencies = (
 			);
-			name = StoryTime;
+			name = Storytime;
 			productName = StoryTime;
-			productReference = C9FD26CD2452DC1D00F21EB8 /* StoryTime.app */;
+			productReference = C9FD26CD2452DC1D00F21EB8 /* Storytime.app */;
 			productType = "com.apple.product-type.application";
 		};
-		C9FD26E22452DC2200F21EB8 /* StoryTimeTests */ = {
+		C9FD26E22452DC2200F21EB8 /* StorytimeTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = C9FD26FA2452DC2200F21EB8 /* Build configuration list for PBXNativeTarget "StoryTimeTests" */;
+			buildConfigurationList = C9FD26FA2452DC2200F21EB8 /* Build configuration list for PBXNativeTarget "StorytimeTests" */;
 			buildPhases = (
 				C9FD26DF2452DC2200F21EB8 /* Sources */,
 				C9FD26E02452DC2200F21EB8 /* Frameworks */,
@@ -169,14 +169,14 @@
 			dependencies = (
 				C9FD26E52452DC2200F21EB8 /* PBXTargetDependency */,
 			);
-			name = StoryTimeTests;
+			name = StorytimeTests;
 			productName = StoryTimeTests;
-			productReference = C9FD26E32452DC2200F21EB8 /* StoryTimeTests.xctest */;
+			productReference = C9FD26E32452DC2200F21EB8 /* StorytimeTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		C9FD26ED2452DC2200F21EB8 /* StoryTimeUITests */ = {
+		C9FD26ED2452DC2200F21EB8 /* StorytimeUITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = C9FD26FD2452DC2200F21EB8 /* Build configuration list for PBXNativeTarget "StoryTimeUITests" */;
+			buildConfigurationList = C9FD26FD2452DC2200F21EB8 /* Build configuration list for PBXNativeTarget "StorytimeUITests" */;
 			buildPhases = (
 				C9FD26EA2452DC2200F21EB8 /* Sources */,
 				C9FD26EB2452DC2200F21EB8 /* Frameworks */,
@@ -187,9 +187,9 @@
 			dependencies = (
 				C9FD26F02452DC2200F21EB8 /* PBXTargetDependency */,
 			);
-			name = StoryTimeUITests;
+			name = StorytimeUITests;
 			productName = StoryTimeUITests;
-			productReference = C9FD26EE2452DC2200F21EB8 /* StoryTimeUITests.xctest */;
+			productReference = C9FD26EE2452DC2200F21EB8 /* StorytimeUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
@@ -215,7 +215,7 @@
 					};
 				};
 			};
-			buildConfigurationList = C9FD26C82452DC1D00F21EB8 /* Build configuration list for PBXProject "StoryTime" */;
+			buildConfigurationList = C9FD26C82452DC1D00F21EB8 /* Build configuration list for PBXProject "Storytime" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -228,9 +228,9 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				C9FD26CC2452DC1D00F21EB8 /* StoryTime */,
-				C9FD26E22452DC2200F21EB8 /* StoryTimeTests */,
-				C9FD26ED2452DC2200F21EB8 /* StoryTimeUITests */,
+				C9FD26CC2452DC1D00F21EB8 /* Storytime */,
+				C9FD26E22452DC2200F21EB8 /* StorytimeTests */,
+				C9FD26ED2452DC2200F21EB8 /* StorytimeUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -277,7 +277,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C9FD26E82452DC2200F21EB8 /* StoryTimeTests.swift in Sources */,
+				C9FD26E82452DC2200F21EB8 /* StorytimeTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -285,7 +285,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C9FD26F32452DC2200F21EB8 /* StoryTimeUITests.swift in Sources */,
+				C9FD26F32452DC2200F21EB8 /* StorytimeUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -294,12 +294,12 @@
 /* Begin PBXTargetDependency section */
 		C9FD26E52452DC2200F21EB8 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = C9FD26CC2452DC1D00F21EB8 /* StoryTime */;
+			target = C9FD26CC2452DC1D00F21EB8 /* Storytime */;
 			targetProxy = C9FD26E42452DC2200F21EB8 /* PBXContainerItemProxy */;
 		};
 		C9FD26F02452DC2200F21EB8 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = C9FD26CC2452DC1D00F21EB8 /* StoryTime */;
+			target = C9FD26CC2452DC1D00F21EB8 /* Storytime */;
 			targetProxy = C9FD26EF2452DC2200F21EB8 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -485,7 +485,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/StoryTime.app/StoryTime";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Storytime.app/Storytime";
 			};
 			name = Debug;
 		};
@@ -506,7 +506,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/StoryTime.app/StoryTime";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Storytime.app/Storytime";
 			};
 			name = Release;
 		};
@@ -551,7 +551,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		C9FD26C82452DC1D00F21EB8 /* Build configuration list for PBXProject "StoryTime" */ = {
+		C9FD26C82452DC1D00F21EB8 /* Build configuration list for PBXProject "Storytime" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				C9FD26F52452DC2200F21EB8 /* Debug */,
@@ -560,7 +560,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		C9FD26F72452DC2200F21EB8 /* Build configuration list for PBXNativeTarget "StoryTime" */ = {
+		C9FD26F72452DC2200F21EB8 /* Build configuration list for PBXNativeTarget "Storytime" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				C9FD26F82452DC2200F21EB8 /* Debug */,
@@ -569,7 +569,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		C9FD26FA2452DC2200F21EB8 /* Build configuration list for PBXNativeTarget "StoryTimeTests" */ = {
+		C9FD26FA2452DC2200F21EB8 /* Build configuration list for PBXNativeTarget "StorytimeTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				C9FD26FB2452DC2200F21EB8 /* Debug */,
@@ -578,7 +578,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		C9FD26FD2452DC2200F21EB8 /* Build configuration list for PBXNativeTarget "StoryTimeUITests" */ = {
+		C9FD26FD2452DC2200F21EB8 /* Build configuration list for PBXNativeTarget "StorytimeUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				C9FD26FE2452DC2200F21EB8 /* Debug */,
