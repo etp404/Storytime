@@ -16,9 +16,11 @@ struct StoryListView: View {
     var body: some View {
            NavigationView {
                ZStack {
-                ForEach(storytimeViewModel.stories(), id: \.self) {story in
-                    Card(story:story)
+                ForEach(storytimeViewModel.stories(limit:6).indices) {index in
+                    Card(story:self.storytimeViewModel.stories(limit:6)[index])
+                    .offset(x: CGFloat(index * 5), y: CGFloat(index * 10))
                 }
+               .offset(x: -CGFloat(3 * 5), y: -CGFloat(3 * 10))
            }
        }
     }

@@ -16,8 +16,8 @@ class StorytimeViewModel: NSObject {
         self.model = model
     }
     
-    func stories() -> [StoryForView] {
-        return self.model.stories().map {
+    func stories(limit:Int) -> [StoryForView] {
+        return self.model.stories()[..<limit].map {
             StoryForView(title:$0.title)
         }
     }

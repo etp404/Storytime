@@ -14,7 +14,9 @@ class StorytimeTests: XCTestCase {
     class MockStorytimeModel : StorytimeModel {
         func stories() -> [Story] {
             return [Story(title:"A"),
-                    Story(title:"B")]
+                    Story(title:"B"),
+                    Story(title:"C"),
+                    Story(title:"D")]
         }
     }
     
@@ -24,8 +26,8 @@ class StorytimeTests: XCTestCase {
         let viewModel = StorytimeViewModel(model:MockStorytimeModel())
         
 
-        XCTAssertEqual(viewModel.stories().count, 2)
-        XCTAssertEqual(viewModel.stories()[0].title, "A")
-        XCTAssertEqual(viewModel.stories()[1].title, "B")
+        XCTAssertEqual(viewModel.stories(limit:2).count, 2)
+        XCTAssertEqual(viewModel.stories(limit:2)[0].title, "A")
+        XCTAssertEqual(viewModel.stories(limit:2)[1].title, "B")
     }
 }
