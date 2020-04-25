@@ -11,13 +11,11 @@ import SwiftUI
 
 struct StoryListView: View {
 
-    @State var viewModel = StoryListViewModel(model:StubbedStorytimeModel())
+    @State var viewModel = StoryListViewModel(model:StubbedStorytimeModel(),numberOfCardInStack:6)
     
     func stories() -> [StoryForView]{
-        return self.viewModel.stories(limit:self.numberOfCardsToShow)
+        return self.viewModel.stories()
     }
-    
-    let numberOfCardsToShow = 6
     
     var body: some View {
         GeometryReader { geometry in
@@ -27,7 +25,7 @@ struct StoryListView: View {
                         Card(story:self.stories()[index])
                             .offset(x: CGFloat(index * 5), y: CGFloat(index * 10))
                     }
-                    .offset(x: -CGFloat(self.numberOfCardsToShow/2 * 5), y: -CGFloat(self.numberOfCardsToShow/2 * 10))
+                    .offset(x: -CGFloat(self.viewModel.numberOfCardInStack/2 * 5), y: -CGFloat(self.viewModel.numberOfCardInStack/2 * 10))
                     
                 }
             }

@@ -20,14 +20,18 @@ class StoryListTests: XCTestCase {
         }
     }
     
-    func testGivenModelReturnsStories_thenStoriesCanBeReturned() throws {
+    let numberOfStoriesInStack:Int = 2
+    
+    var viewModel:StoryListViewModel!
+    
+    override func setUp() {
         self.continueAfterFailure = false;
+        viewModel = StoryListViewModel(model:MockStorytimeModel(), numberOfCardInStack:numberOfStoriesInStack)
 
-        let viewModel = StoryListViewModel(model:MockStorytimeModel())
-        
-
-        XCTAssertEqual(viewModel.stories(limit:2).count, 2)
-        XCTAssertEqual(viewModel.stories(limit:2)[0].title, "A")
-        XCTAssertEqual(viewModel.stories(limit:2)[1].title, "B")
+    }
+    func testGivenModelReturnsStories_thenStoriesCanBeReturned() throws {
+        XCTAssertEqual(viewModel.stories().count, 2)
+        XCTAssertEqual(viewModel.stories()[0].title, "A")
+        XCTAssertEqual(viewModel.stories()[1].title, "B")
     }
 }

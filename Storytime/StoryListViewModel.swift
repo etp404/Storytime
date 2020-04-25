@@ -11,13 +11,16 @@ import UIKit
 class StoryListViewModel: NSObject {
     
     let model: StorytimeModel
+    let numberOfCardInStack:Int
     
-    init(model:StorytimeModel) {
+    init(model:StorytimeModel,
+         numberOfCardInStack:Int) {
         self.model = model
+        self.numberOfCardInStack = numberOfCardInStack
     }
     
-    func stories(limit:Int) -> [StoryForView] {
-        return self.model.stories()[..<limit].map {
+    func stories() -> [StoryForView] {
+        return self.model.stories()[..<numberOfCardInStack].map {
             StoryForView(title:$0.title)
         }
     }
