@@ -33,5 +33,12 @@ class StoryListViewModel: NSObject {
             story.storyId == id
         }
         model.dismissStory(id: id)
+        storiesInStack.append(model.nextStory().toStoryForView())
+    }
+}
+
+extension Story {
+    func toStoryForView() -> StoryForView {
+        StoryForView(storyId:id, title: title)
     }
 }

@@ -33,5 +33,9 @@ class StubbedStorytimeModel: StorytimeModel {
     func dismissStory(id: UUID) {
         
     }
+    
+    func nextStory() -> Story {
+        Story(title:"Story P")
+    }
 
 }

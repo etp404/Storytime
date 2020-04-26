@@ -13,13 +13,22 @@ class StoryListTests: XCTestCase {
 
     
     class MockStorytimeModel : StorytimeModel {
+        func nextStory() -> Story {
+            storyE
+        }
+        
+        let storyA = Story(title:"A")
         let storyB = Story(title:"B")
+        let storyC = Story(title:"C")
+        let storyD = Story(title:"D")
+        let storyE = Story(title:"E")
+        
         var dismissedStoryIds:[UUID] = []
         func stories() -> [Story] {
-            return [Story(title:"A"),
+            return [storyA,
                     storyB,
-                    Story(title:"C"),
-                    Story(title:"D")]
+                    storyC,
+                    storyD]
         }
         
         func dismissStory(id:UUID) {
@@ -48,6 +57,16 @@ class StoryListTests: XCTestCase {
         viewModel.dismissStory(id:mockStorytimeModel.storyB.id)
         
         XCTAssertEqual(viewModel.stories()[1].title, "C")
+    }
+    
+    
+    func testGivenModelIsToldToDismissStory_anotherStoryIsObtainedFromModel() throws {
+        viewModel.dismissStory(id:mockStorytimeModel.storyA.id)
+        viewModel.dismissStory(id:mockStorytimeModel.storyB.id)
+        viewModel.dismissStory(id:mockStorytimeModel.storyC.id)
+
+        XCTAssertEqual(viewModel.stories().count, 3)
+        XCTAssertEqual(viewModel.stories()[2].storyId, mockStorytimeModel.storyE.id)
     }
     
     func testGivenModelIsToldToDismissStory_thenModelIsInformed() throws {
