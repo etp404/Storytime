@@ -21,12 +21,11 @@ struct StoryListView: View {
         GeometryReader { geometry in
             NavigationView {
                 ZStack {
-                    ForEach(self.stories().indices) {index in
+                    ForEach(self.stories().indices) {(index:Int) in
                         Card(story:self.stories()[index])
-                            .offset(x: CGFloat(index * 5), y: CGFloat(index * 10))
+                            .offset(x: CGFloat(-index * 5), y: CGFloat(-index * 10))
+                            .zIndex(-Double(index))
                     }
-                    .offset(x: -CGFloat(self.viewModel.numberOfCardInStack/2 * 5), y: -CGFloat(self.viewModel.numberOfCardInStack/2 * 10))
-                    
                 }
             }
         }
