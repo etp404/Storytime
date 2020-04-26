@@ -9,9 +9,11 @@
 import UIKit
 
 struct Story {
+    let id:UUID
     let title:String
     
     init(title:String) {
+        self.id = UUID.init()
         self.title = title
     }
 }

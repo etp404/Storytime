@@ -9,9 +9,11 @@
 import UIKit
 
 struct StoryForView : Hashable {
+    let storyId:UUID
     let title:String
     
-    init(title:String) {
+    init(storyId:UUID, title:String) {
+        self.storyId = storyId
         self.title = title
     }
 
