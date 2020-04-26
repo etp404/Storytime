@@ -32,5 +32,6 @@ class StoryListViewModel: NSObject {
         storiesInStack.removeAll { (story) -> Bool in
             story.storyId == id
         }
+        model.dismissStory(id: id)
     }
 }

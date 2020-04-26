@@ -9,6 +9,8 @@
 import UIKit
 
 class StubbedStorytimeModel: StorytimeModel {
+
+    
     func stories() -> [Story] {
         return [
             Story(title:"Story A"),
@@ -26,6 +28,10 @@ class StubbedStorytimeModel: StorytimeModel {
             Story(title:"Story M"),
             Story(title:"Story N"),
             Story(title:"Story O")]
+    }
+    
+    func dismissStory(id: UUID) {
+        
     }
 
 }

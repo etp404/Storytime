@@ -10,4 +10,6 @@ import UIKit
 
 protocol StorytimeModel {
     func stories() -> [Story]
+    
+    func dismissStory(id:UUID)
 }
