@@ -11,18 +11,14 @@ import SwiftUI
 
 struct StoryListView: View {
 
-    @State var viewModel = StoryListViewModel(model:StubbedStorytimeModel(),numberOfCardInStack:6)
-    
-    func stories() -> [StoryForView]{
-        return self.viewModel.stories()
-    }
+    @State private var viewModel = StoryListViewModel(model:StubbedStorytimeModel(),numberOfCardInStack:6)
     
     var body: some View {
         GeometryReader { geometry in
             NavigationView {
                 ZStack {
-                    ForEach(self.stories().indices) {(index:Int) in
-                        Card(story:self.stories()[index])
+                    ForEach(self.viewModel.stories().indices) {(index:Int) in
+                        Card(story:self.viewModel.stories()[index])
                             .offset(x: CGFloat(-index * 5), y: CGFloat(-index * 10))
                             .zIndex(-Double(index))
                     }
@@ -33,9 +29,9 @@ struct StoryListView: View {
 }
 
 struct Card : View {
-    @State var translation: CGSize = .zero
+    @State private var translation: CGSize = .zero
 
-    let story:StoryForView
+    private let story:StoryForView
     
     init(story:StoryForView) {
         self.story = story
