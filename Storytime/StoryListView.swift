@@ -17,8 +17,8 @@ struct StoryListView: View {
         GeometryReader { geometry in
             NavigationView {
                 ZStack {
-                    ForEach(self.viewModel.stories().indices) {(index:Int) in
-                        Card(story:self.viewModel.stories()[index])
+                    ForEach(self.viewModel.storiesInStack.indices) {(index:Int) in
+                        Card(story:self.viewModel.storiesInStack[index])
                             .offset(x: CGFloat(-index * 5), y: CGFloat(-index * 10))
                             .zIndex(-Double(index))
                     }

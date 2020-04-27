@@ -10,10 +10,10 @@ import UIKit
 
 class StoryListViewModel: NSObject {
     
-    let model: StorytimeModel
-    let numberOfCardInStack:Int
+    private let model: StorytimeModel
+    private let numberOfCardInStack:Int
     
-    var storiesInStack:[StoryForView];
+    private (set) var storiesInStack:[StoryForView] 
     
     init(model:StorytimeModel,
          numberOfCardInStack:Int) {
@@ -22,10 +22,6 @@ class StoryListViewModel: NSObject {
         storiesInStack = self.model.stories()[..<numberOfCardInStack].map {
             StoryForView(storyId:$0.id, title:$0.title)
         }
-    }
-    
-    func stories() -> [StoryForView] {
-        return storiesInStack
     }
     
     func dismissStory(id:UUID) {
