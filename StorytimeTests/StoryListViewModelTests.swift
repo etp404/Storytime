@@ -9,7 +9,7 @@
 import XCTest
 @testable import Storytime
 
-class StoryListTests: XCTestCase {
+class StoryListViewModelTests: XCTestCase {
 
     
     class MockStorytimeModel : StorytimeModel {
