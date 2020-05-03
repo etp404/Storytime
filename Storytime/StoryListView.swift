@@ -11,7 +11,7 @@ import SwiftUI
 
 struct StoryListView: View {
     
-    @State private var viewModel = StoryListViewModel(model:StubbedStorytimeModel(),numberOfCardInStack:6)
+    @ObservedObject private var viewModel = StoryListViewModel(model:StubbedStorytimeModel(),numberOfCardInStack:6)
     
     var body: some View {
         GeometryReader { geometry in

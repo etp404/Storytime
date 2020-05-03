@@ -8,12 +8,12 @@
 
 import UIKit
 
-class StoryListViewModel: NSObject {
+class StoryListViewModel: NSObject, ObservableObject{
     
     private let model: StorytimeModel
     private let numberOfCardInStack:Int
     
-    var storiesInStack:[StoryViewModel] = []
+    @Published var storiesInStack:[StoryViewModel] = []
     
     init(model:StorytimeModel,
          numberOfCardInStack:Int) {
