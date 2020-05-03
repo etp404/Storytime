@@ -13,28 +13,28 @@ class StoryListViewModel: NSObject {
     private let model: StorytimeModel
     private let numberOfCardInStack:Int
     
-    private (set) var storiesInStack:[StoryForView] 
+    private var modelStoryStack:[Story] = []
+    
+    var storiesInStack:[StoryForView] {
+        get {
+            modelStoryStack.map {
+                StoryForView(storyId:$0.id, title:$0.title)
+            }
+        }
+    }
     
     init(model:StorytimeModel,
          numberOfCardInStack:Int) {
         self.model = model
         self.numberOfCardInStack = numberOfCardInStack
-        storiesInStack = self.model.stories()[..<numberOfCardInStack].map {
-            StoryForView(storyId:$0.id, title:$0.title)
-        }
+        modelStoryStack = Array(self.model.stories().prefix(numberOfCardInStack))
     }
     
     func dismissStory(id:UUID) {
-        storiesInStack.removeAll { (story) -> Bool in
-            story.storyId == id
+        modelStoryStack.removeAll { (story) -> Bool in
+            story.id == id
         }
         model.dismissStory(id: id)
-        storiesInStack.append(model.nextStory().toStoryForView())
-    }
-}
-
-extension Story {
-    func toStoryForView() -> StoryForView {
-        StoryForView(storyId:id, title: title)
+        modelStoryStack.append(model.nextStory())
     }
 }
