@@ -17,11 +17,12 @@ struct StoryListView: View {
         GeometryReader { geometry in
             NavigationView {
                 ZStack {
-                    ForEach(self.viewModel.storiesInStack, id: \.self) {(story:StoryViewModel) in
+                    ForEach(self.viewModel.storiesInStack, id: \.storyId) {(story:StoryViewModel) in
                         Card(story:story) {
                             storyId in
                             self.viewModel.dismissStory(id: storyId)
                         }
+                        .animation(.spring())
                         .offset(x: CGFloat(-story.index * 5), y: CGFloat(-story.index * 10))
                         .zIndex(-Double(story.index))
                     }
