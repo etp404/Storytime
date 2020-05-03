@@ -17,8 +17,9 @@ class StoryListViewModel: NSObject {
     
     var storiesInStack:[StoryForView] {
         get {
-            modelStoryStack.map {
-                StoryForView(storyId:$0.id, title:$0.title)
+            return zip(modelStoryStack.indices, modelStoryStack)
+                .map{ index, story in
+                    StoryForView(storyId:story.id, title:story.title, index: index)
             }
         }
     }

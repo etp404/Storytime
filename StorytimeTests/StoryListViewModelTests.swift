@@ -42,7 +42,7 @@ class StoryListViewModelTests: XCTestCase {
     var mockStorytimeModel:MockStorytimeModel!
     
     override func setUp() {
-        self.continueAfterFailure = false;
+        self.continueAfterFailure = true;
         mockStorytimeModel = MockStorytimeModel()
         viewModel = StoryListViewModel(model:mockStorytimeModel, numberOfCardInStack:numberOfStoriesInStack)
     }
@@ -74,5 +74,13 @@ class StoryListViewModelTests: XCTestCase {
         
         XCTAssertEqual(mockStorytimeModel.dismissedStoryIds.count, 1)
         XCTAssertTrue(mockStorytimeModel.dismissedStoryIds.contains(mockStorytimeModel.storyB.id))
+    }
+    
+    func testGivenModelIsToldToDismissStory_thenCorrectIndicesAreReturned() throws {
+        viewModel.dismissStory(id:mockStorytimeModel.storyB.id)
+        
+        XCTAssertEqual(viewModel.storiesInStack[0].index, 0)
+        XCTAssertEqual(viewModel.storiesInStack[2].index, 2)
+        
     }
 }
