@@ -12,11 +12,4 @@ struct StoryViewModel : Hashable {
     let storyId:UUID
     let title:String
     let index:Int
-    
-    init(storyId:UUID, title:String, index:Int=0) {
-        self.storyId = storyId
-        self.title = title
-        self.index = index
-    }
-
 }
