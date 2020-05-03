@@ -8,7 +8,7 @@
 
 import UIKit
 
-struct StoryForView : Hashable {
+struct StoryViewModel : Hashable {
     let storyId:UUID
     let title:String
     let index:Int

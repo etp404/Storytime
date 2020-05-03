@@ -31,9 +31,9 @@ struct StoryListView: View {
 struct Card : View {
     @State private var translation: CGSize = .zero
 
-    private let story:StoryForView
+    private let story:StoryViewModel
     
-    init(story:StoryForView) {
+    init(story:StoryViewModel) {
         self.story = story
     }
     

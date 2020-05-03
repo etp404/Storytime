@@ -15,11 +15,11 @@ class StoryListViewModel: NSObject {
     
     private var modelStoryStack:[Story] = []
     
-    var storiesInStack:[StoryForView] {
+    var storiesInStack:[StoryViewModel] {
         get {
             return zip(modelStoryStack.indices, modelStoryStack)
                 .map{ index, story in
-                    StoryForView(storyId:story.id, title:story.title, index: index)
+                    StoryViewModel(storyId:story.id, title:story.title, index: index)
             }
         }
     }
