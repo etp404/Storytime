@@ -77,7 +77,7 @@ class StoryListViewModelTests: XCTestCase {
     }
     
     func testGivenModelIsToldToDismissStory_thenCorrectIndicesAreReturned() throws {
-        viewModel.dismissStory(id:mockStorytimeModel.storyB.id)
+        viewModel.dismissStory(id:mockStorytimeModel.storyA.id)
         
         XCTAssertEqual(viewModel.storiesInStack[0].index, 0)
         XCTAssertEqual(viewModel.storiesInStack[2].index, 2)
