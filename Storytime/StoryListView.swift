@@ -54,14 +54,21 @@ struct Card : View {
             .rotationEffect(.degrees(Double(self.translation.width / geometry.size.width) * 25), anchor: .bottom)
             .gesture(
                 DragGesture()
-               .onChanged { value in
-                        self.translation = value.translation
-                }
-                .onEnded { value in
-                    self.translation = .zero
+               .onChanged { gesture in
+                        self.translation = gesture.translation
+                }.onEnded { gesture in
+                    if self.shouldDismiss(geometry, gesture: gesture) {
+                        self.translation = .zero
+                    } else {
+                        self.translation = .zero
+                    }
                 }
             )
         }
+    }
+    
+    private func shouldDismiss(_ geometry: GeometryProxy, gesture: DragGesture.Value) -> Bool {
+        abs(gesture.translation.width / geometry.size.width) > 0.5
     }
 }
 
