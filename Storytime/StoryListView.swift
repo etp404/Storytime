@@ -10,7 +10,7 @@ import UIKit
 import SwiftUI
 
 struct StoryListView: View {
-
+    
     @State private var viewModel = StoryListViewModel(model:StubbedStorytimeModel(),numberOfCardInStack:6)
     
     var body: some View {
@@ -18,9 +18,12 @@ struct StoryListView: View {
             NavigationView {
                 ZStack {
                     ForEach(self.viewModel.storiesInStack, id: \.self) {(story:StoryViewModel) in
-                        Card(story:story)
-                            .offset(x: CGFloat(-story.index * 5), y: CGFloat(-story.index * 10))
-                            .zIndex(-Double(story.index))
+                        Card(story:story) {
+                            storyId in
+                            self.viewModel.dismissStory(id: storyId)
+                        }
+                        .offset(x: CGFloat(-story.index * 5), y: CGFloat(-story.index * 10))
+                        .zIndex(-Double(story.index))
                     }
                 }
             }
@@ -30,11 +33,12 @@ struct StoryListView: View {
 
 struct Card : View {
     @State private var translation: CGSize = .zero
-
+    private let onDismiss:(UUID)->Void
     private let story:StoryViewModel
     
-    init(story:StoryViewModel) {
+    init(story:StoryViewModel, onDismiss: @escaping (UUID)->Void) {
         self.story = story
+        self.onDismiss = onDismiss
     }
     
     var body: some View{
@@ -54,11 +58,11 @@ struct Card : View {
             .rotationEffect(.degrees(Double(self.translation.width / geometry.size.width) * 25), anchor: .bottom)
             .gesture(
                 DragGesture()
-               .onChanged { gesture in
+                    .onChanged { gesture in
                         self.translation = gesture.translation
                 }.onEnded { gesture in
                     if self.shouldDismiss(geometry, gesture: gesture) {
-                        self.translation = .zero
+                        self.onDismiss(self.story.storyId)
                     } else {
                         self.translation = .zero
                     }
