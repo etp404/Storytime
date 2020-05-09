@@ -10,6 +10,8 @@
 		C992A2B62466AED600FD8547 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C992A2B52466AED600FD8547 /* Coordinator.swift */; };
 		C992A2B82466AEF400FD8547 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C992A2B72466AEF400FD8547 /* AppCoordinator.swift */; };
 		C992A2BA2466B17100FD8547 /* StoryListCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C992A2B92466B17100FD8547 /* StoryListCoordinator.swift */; };
+		C992A2BD2466B5BB00FD8547 /* WholeStoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C992A2BC2466B5BB00FD8547 /* WholeStoryView.swift */; };
+		C992A2C02466B70F00FD8547 /* WholeStoryCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C992A2BF2466B70F00FD8547 /* WholeStoryCoordinator.swift */; };
 		C9FD26D12452DC1D00F21EB8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9FD26D02452DC1D00F21EB8 /* AppDelegate.swift */; };
 		C9FD26D32452DC1D00F21EB8 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9FD26D22452DC1D00F21EB8 /* SceneDelegate.swift */; };
 		C9FD26D52452DC1D00F21EB8 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9FD26D42452DC1D00F21EB8 /* ContentView.swift */; };
@@ -47,6 +49,8 @@
 		C992A2B52466AED600FD8547 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		C992A2B72466AEF400FD8547 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		C992A2B92466B17100FD8547 /* StoryListCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryListCoordinator.swift; sourceTree = "<group>"; };
+		C992A2BC2466B5BB00FD8547 /* WholeStoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WholeStoryView.swift; sourceTree = "<group>"; };
+		C992A2BF2466B70F00FD8547 /* WholeStoryCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WholeStoryCoordinator.swift; sourceTree = "<group>"; };
 		C9FD26CD2452DC1D00F21EB8 /* Storytime.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Storytime.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C9FD26D02452DC1D00F21EB8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C9FD26D22452DC1D00F21EB8 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -105,6 +109,15 @@
 			path = StoryList;
 			sourceTree = "<group>";
 		};
+		C992A2BE2466B5CB00FD8547 /* WholeStory */ = {
+			isa = PBXGroup;
+			children = (
+				C992A2BC2466B5BB00FD8547 /* WholeStoryView.swift */,
+				C992A2BF2466B70F00FD8547 /* WholeStoryCoordinator.swift */,
+			);
+			path = WholeStory;
+			sourceTree = "<group>";
+		};
 		C9FD26C42452DC1D00F21EB8 = {
 			isa = PBXGroup;
 			children = (
@@ -128,6 +141,7 @@
 		C9FD26CF2452DC1D00F21EB8 /* Storytime */ = {
 			isa = PBXGroup;
 			children = (
+				C992A2BE2466B5CB00FD8547 /* WholeStory */,
 				C992A2BB2466B56300FD8547 /* StoryList */,
 				C9FD26D02452DC1D00F21EB8 /* AppDelegate.swift */,
 				C9FD26D22452DC1D00F21EB8 /* SceneDelegate.swift */,
@@ -302,6 +316,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C992A2C02466B70F00FD8547 /* WholeStoryCoordinator.swift in Sources */,
 				C992A2B82466AEF400FD8547 /* AppCoordinator.swift in Sources */,
 				C9FD26D12452DC1D00F21EB8 /* AppDelegate.swift in Sources */,
 				C9FD27052452DF2D00F21EB8 /* StoryListViewModel.swift in Sources */,
@@ -311,6 +326,7 @@
 				C9FD26D52452DC1D00F21EB8 /* ContentView.swift in Sources */,
 				C9FD27012452DEA300F21EB8 /* Story.swift in Sources */,
 				C9FD27072452E0C400F21EB8 /* StoryViewModel.swift in Sources */,
+				C992A2BD2466B5BB00FD8547 /* WholeStoryView.swift in Sources */,
 				C9FD270F24531B1F00F21EB8 /* StoryListView.swift in Sources */,
 				C992A2BA2466B17100FD8547 /* StoryListCoordinator.swift in Sources */,
 				C9FD27032452DF1200F21EB8 /* StorytimeModel.swift in Sources */,

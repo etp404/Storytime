@@ -11,7 +11,11 @@ import SwiftUI
 
 struct StoryListView: View {
     
-    @ObservedObject private var viewModel = StoryListViewModel(model:StubbedStorytimeModel(),numberOfCardInStack:6)
+    @ObservedObject private var viewModel: StoryListViewModel
+    
+    init(viewModel:StoryListViewModel) {
+        self.viewModel = viewModel
+    }
     
     var body: some View {
         GeometryReader { geometry in
@@ -80,7 +84,7 @@ struct Card : View {
 
 struct StoryListView_Previews: PreviewProvider {
     static var previews: some View {
-        StoryListView()
+        StoryListView(viewModel:StoryListViewModel(model:StubbedStorytimeModel(),numberOfCardInStack:6))
     }
 }
 
