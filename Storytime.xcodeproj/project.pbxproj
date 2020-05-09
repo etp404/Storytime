@@ -94,6 +94,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C992A2BB2466B56300FD8547 /* StoryList */ = {
+			isa = PBXGroup;
+			children = (
+				C9FD27042452DF2D00F21EB8 /* StoryListViewModel.swift */,
+				C9FD27062452E0C400F21EB8 /* StoryViewModel.swift */,
+				C9FD270E24531B1F00F21EB8 /* StoryListView.swift */,
+				C992A2B92466B17100FD8547 /* StoryListCoordinator.swift */,
+			);
+			path = StoryList;
+			sourceTree = "<group>";
+		};
 		C9FD26C42452DC1D00F21EB8 = {
 			isa = PBXGroup;
 			children = (
@@ -117,6 +128,7 @@
 		C9FD26CF2452DC1D00F21EB8 /* Storytime */ = {
 			isa = PBXGroup;
 			children = (
+				C992A2BB2466B56300FD8547 /* StoryList */,
 				C9FD26D02452DC1D00F21EB8 /* AppDelegate.swift */,
 				C9FD26D22452DC1D00F21EB8 /* SceneDelegate.swift */,
 				C9FD26D42452DC1D00F21EB8 /* ContentView.swift */,
@@ -126,13 +138,9 @@
 				C9FD26D82452DC2200F21EB8 /* Preview Content */,
 				C9FD27002452DEA300F21EB8 /* Story.swift */,
 				C9FD27022452DF1200F21EB8 /* StorytimeModel.swift */,
-				C9FD27042452DF2D00F21EB8 /* StoryListViewModel.swift */,
-				C9FD27062452E0C400F21EB8 /* StoryViewModel.swift */,
-				C9FD270E24531B1F00F21EB8 /* StoryListView.swift */,
 				C9FD271024531B5800F21EB8 /* StubbedStorytimeModel.swift */,
 				C992A2B52466AED600FD8547 /* Coordinator.swift */,
 				C992A2B72466AEF400FD8547 /* AppCoordinator.swift */,
-				C992A2B92466B17100FD8547 /* StoryListCoordinator.swift */,
 			);
 			path = Storytime;
 			sourceTree = "<group>";
