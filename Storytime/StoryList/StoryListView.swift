@@ -42,7 +42,6 @@ struct Card : View {
     @State private var translation: CGSize = .zero
     private let onDismiss:(UUID)->Void
     private let story:StoryViewModel
-    @State private var isPresented = false
     
     init(story:StoryViewModel, onDismiss: @escaping (UUID)->Void) {
         self.story = story
@@ -50,9 +49,7 @@ struct Card : View {
     }
     
     var body: some View{
-        Button(action: {
-            self.isPresented = true
-        }) {
+       NavigationButton(contentView:
             GeometryReader { geometry in
                 VStack() {
                     Text(self.story.title)
@@ -79,16 +76,37 @@ struct Card : View {
                         }
                     }
                 )
-                    .background(NavigationLink(destination: WholeStoryView(), isActive: self.$isPresented) {
-                        EmptyView()
-                })
-            }
-        }
+            },
+            navigationView: { isPresented in
+                NavigationLink(destination: EmptyView(), isActive: isPresented) {
+                    WholeStoryView()
+                }
+       }
+        )
     }
     
     private func shouldDismiss(_ geometry: GeometryProxy, gesture: DragGesture.Value) -> Bool {
         abs(gesture.translation.width / geometry.size.width) > 0.5
     }
+}
+
+struct NavigationButton<ContentView:View, NV: View> : View {
+    @State private var isPresented = false
+    var contentView: ContentView
+    var navigationView:(Binding<Bool>)->NV
+    
+    var body: some View {
+        Button(action: {
+            self.isPresented = true
+        }) {
+            contentView
+                .background(
+                    navigationView($isPresented)
+            )
+        }
+        
+    }
+    
 }
 
 struct StoryListView_Previews: PreviewProvider {
