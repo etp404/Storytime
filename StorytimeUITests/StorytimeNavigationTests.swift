@@ -22,18 +22,13 @@ class StorytimeNavigationTests: XCTestCase {
      override func tearDownWithError() throws {
          // Put teardown code here. This method is called after the invocation of each test method in the class.
      }
-
-    func testStartsWithStack() throws {
-        let app = XCUIApplication()
-        app.launch()
-    }
-    
     
     func testCanNavigateToWholeStory() throws {
         let app = XCUIApplication()
         app.launch()
-        XCUIApplication()/*@START_MENU_TOKEN@*/.staticTexts["Button"]/*[[".buttons[\"Button\"].staticTexts[\"Button\"]",".staticTexts[\"Button\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/
-                    
+        XCUIApplication().buttons["Navigation link at index 0"].tap()
+        XCTAssertTrue(XCUIApplication().staticTexts["WholeStory"].waitForExistence(timeout: 1))
+
                 
     }
 }
