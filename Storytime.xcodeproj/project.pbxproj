@@ -18,7 +18,7 @@
 		C9FD26DA2452DC2200F21EB8 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C9FD26D92452DC2200F21EB8 /* Preview Assets.xcassets */; };
 		C9FD26DD2452DC2200F21EB8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C9FD26DB2452DC2200F21EB8 /* LaunchScreen.storyboard */; };
 		C9FD26E82452DC2200F21EB8 /* StoryListViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9FD26E72452DC2200F21EB8 /* StoryListViewModelTests.swift */; };
-		C9FD26F32452DC2200F21EB8 /* StorytimeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9FD26F22452DC2200F21EB8 /* StorytimeUITests.swift */; };
+		C9FD26F32452DC2200F21EB8 /* StorytimeNavigationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9FD26F22452DC2200F21EB8 /* StorytimeNavigationTests.swift */; };
 		C9FD27012452DEA300F21EB8 /* Story.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9FD27002452DEA300F21EB8 /* Story.swift */; };
 		C9FD27032452DF1200F21EB8 /* StorytimeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9FD27022452DF1200F21EB8 /* StorytimeModel.swift */; };
 		C9FD27052452DF2D00F21EB8 /* StoryListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9FD27042452DF2D00F21EB8 /* StoryListViewModel.swift */; };
@@ -61,7 +61,7 @@
 		C9FD26E72452DC2200F21EB8 /* StoryListViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryListViewModelTests.swift; sourceTree = "<group>"; };
 		C9FD26E92452DC2200F21EB8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C9FD26EE2452DC2200F21EB8 /* StorytimeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = StorytimeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		C9FD26F22452DC2200F21EB8 /* StorytimeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorytimeUITests.swift; sourceTree = "<group>"; };
+		C9FD26F22452DC2200F21EB8 /* StorytimeNavigationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorytimeNavigationTests.swift; sourceTree = "<group>"; };
 		C9FD26F42452DC2200F21EB8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C9FD27002452DEA300F21EB8 /* Story.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Story.swift; sourceTree = "<group>"; };
 		C9FD27022452DF1200F21EB8 /* StorytimeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorytimeModel.swift; sourceTree = "<group>"; };
@@ -176,7 +176,7 @@
 		C9FD26F12452DC2200F21EB8 /* StorytimeUITests */ = {
 			isa = PBXGroup;
 			children = (
-				C9FD26F22452DC2200F21EB8 /* StorytimeUITests.swift */,
+				C9FD26F22452DC2200F21EB8 /* StorytimeNavigationTests.swift */,
 				C9FD26F42452DC2200F21EB8 /* Info.plist */,
 			);
 			path = StorytimeUITests;
@@ -341,7 +341,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C9FD26F32452DC2200F21EB8 /* StorytimeUITests.swift in Sources */,
+				C9FD26F32452DC2200F21EB8 /* StorytimeNavigationTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -492,6 +492,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"StoryTime/Preview Content\"";
+				DEVELOPMENT_TEAM = 8UGJ8D8V94;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = StoryTime/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -511,6 +512,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"StoryTime/Preview Content\"";
+				DEVELOPMENT_TEAM = 8UGJ8D8V94;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = StoryTime/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -530,6 +532,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 8UGJ8D8V94;
 				INFOPLIST_FILE = StoryTimeTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -551,6 +554,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 8UGJ8D8V94;
 				INFOPLIST_FILE = StoryTimeTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -571,6 +575,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 8UGJ8D8V94;
 				INFOPLIST_FILE = StoryTimeUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -579,9 +584,10 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = uk.co.matt.StoryTimeUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = StoryTime;
+				TEST_TARGET_NAME = Storytime;
 			};
 			name = Debug;
 		};
@@ -590,6 +596,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 8UGJ8D8V94;
 				INFOPLIST_FILE = StoryTimeUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -598,9 +605,10 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = uk.co.matt.StoryTimeUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = StoryTime;
+				TEST_TARGET_NAME = Storytime;
 			};
 			name = Release;
 		};

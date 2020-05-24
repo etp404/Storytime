@@ -27,10 +27,12 @@ struct StoryListView: View {
                                 storyId in
                                 self.viewModel.dismissStory(id: storyId)
                             }
-                            .animation(.spring())
-                            .offset(x: CGFloat(-story.index * 5), y: CGFloat(-story.index * 10))
-                            .zIndex(-Double(story.index))
-                        }.buttonStyle(PlainButtonStyle())
+                            .accessibility(label: Text("Card for \(story.storyId)"))
+                        }
+                        .buttonStyle(PlainButtonStyle())
+                        .animation(.spring())
+                        .offset(x: CGFloat(-story.index * 5), y: CGFloat(-story.index * 10))
+                        .zIndex(-Double(story.index))
                     }
                 }
             }
