@@ -48,30 +48,28 @@ struct Card : View {
     
     var body: some View{
         GeometryReader { geometry in
-            VStack() {
-                Text(self.story.title)
-                    .font(.title)
-                    .bold()
-            }
-            .padding(.horizontal)
-            .frame(width:  geometry.size.width*0.8, height:  geometry.size.height*0.8, alignment: .center)
-            .background(Color.white)
-            .cornerRadius(10)
-            .shadow(radius: 5)
-            .offset(x: self.translation.width, y: self.translation.height)
-            .animation(.interactiveSpring())
-            .rotationEffect(.degrees(Double(self.translation.width / geometry.size.width) * 25), anchor: .bottom)
-            .gesture(
-                DragGesture()
-                    .onChanged { gesture in
-                        self.translation = gesture.translation
-                }.onEnded { gesture in
-                    if self.shouldDismiss(geometry, gesture: gesture) {
-                        self.onDismiss(self.story.storyId)
-                    } else {
-                        self.translation = .zero
+            Text(self.story.title)
+                .font(.title)
+                .bold()
+                .padding(.horizontal)
+                .frame(width:  geometry.size.width*0.8, height:  geometry.size.height*0.8, alignment: .center)
+                .background(Color.white)
+                .cornerRadius(10)
+                .shadow(radius: 5)
+                .offset(x: self.translation.width, y: self.translation.height)
+                .animation(.interactiveSpring())
+                .rotationEffect(.degrees(Double(self.translation.width / geometry.size.width) * 25), anchor: .bottom)
+                .gesture(
+                    DragGesture()
+                        .onChanged { gesture in
+                            self.translation = gesture.translation
+                    }.onEnded { gesture in
+                        if self.shouldDismiss(geometry, gesture: gesture) {
+                            self.onDismiss(self.story.storyId)
+                        } else {
+                            self.translation = .zero
+                        }
                     }
-                }
             )
         }
     }
