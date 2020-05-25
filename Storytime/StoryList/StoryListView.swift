@@ -22,13 +22,10 @@ struct StoryListView: View {
             NavigationView {
                 ZStack {
                     ForEach(self.viewModel.storiesInStack, id: \.storyId) {(story:StoryViewModel) in
-                        NavigationLink(destination: WholeStoryView()) {
-                            Card(story:story) {
-                                storyId in
-                                self.viewModel.dismissStory(id: storyId)
-                            }.accessibility(label: Text(story.title))
+                        Card(story:story) {
+                            storyId in
+                            self.viewModel.dismissStory(id: storyId)
                         }
-                        
                         .buttonStyle(PlainButtonStyle())
                         .animation(.spring())
                         .offset(x: CGFloat(-story.index * 5), y: CGFloat(-story.index * 10))
@@ -52,29 +49,32 @@ struct Card : View {
     
     var body: some View{
         GeometryReader { geometry in
-            Text(self.story.title)
-                .font(.title)
-                .bold()
-                .padding(.horizontal)
-                .frame(width:  geometry.size.width*0.8, height:  geometry.size.height*0.8, alignment: .center)
-                .background(Color.white)
-                .cornerRadius(10)
-                .shadow(radius: 5)
-                .offset(x: self.translation.width, y: self.translation.height)
-                .animation(.interactiveSpring())
-                .rotationEffect(.degrees(Double(self.translation.width / geometry.size.width) * 25), anchor: .bottom)
-                .gesture(
-                    DragGesture()
-                        .onChanged { gesture in
-                            self.translation = gesture.translation
-                    }.onEnded { gesture in
-                        if self.shouldDismiss(geometry, gesture: gesture) {
-                            self.onDismiss(self.story.storyId)
-                        } else {
-                            self.translation = .zero
+            NavigationLink(destination: WholeStoryView()) {
+                Text(self.story.title)
+                    .font(.title)
+                    .bold()
+                    .padding(.horizontal)
+                    .frame(width:  geometry.size.width*0.8, height:  geometry.size.height*0.8, alignment: .center)
+                    .background(Color.white)
+                    .cornerRadius(10)
+                    .shadow(radius: 5)
+                    .offset(x: self.translation.width, y: self.translation.height)
+                    .animation(.interactiveSpring())
+                    .rotationEffect(.degrees(Double(self.translation.width / geometry.size.width) * 25), anchor: .bottom)
+                    .gesture(
+                        DragGesture()
+                            .onChanged { gesture in
+                                self.translation = gesture.translation
+                        }.onEnded { gesture in
+                            if self.shouldDismiss(geometry, gesture: gesture) {
+                                self.onDismiss(self.story.storyId)
+                            } else {
+                                self.translation = .zero
+                            }
                         }
-                    }
-            )
+                )
+                    .accessibility(label: Text(self.story.title))
+            }
         }
     }
     
