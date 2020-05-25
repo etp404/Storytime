@@ -26,9 +26,9 @@ struct StoryListView: View {
                             Card(story:story) {
                                 storyId in
                                 self.viewModel.dismissStory(id: storyId)
-                            }
+                            }.accessibility(label: Text(story.title))
                         }
-                        .accessibility(label: Text("Navigation link at index \(story.index)"))
+                        
                         .buttonStyle(PlainButtonStyle())
                         .animation(.spring())
                         .offset(x: CGFloat(-story.index * 5), y: CGFloat(-story.index * 10))

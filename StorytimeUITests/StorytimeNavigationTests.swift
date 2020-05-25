@@ -23,12 +23,17 @@ class StorytimeNavigationTests: XCTestCase {
          // Put teardown code here. This method is called after the invocation of each test method in the class.
      }
     
+    func testStoriesCanBeDimissed() throws {
+        let app = XCUIApplication()
+        app.launch()
+        app.buttons["Story A"].swipeRight()
+        XCTAssertTrue(XCUIApplication().buttons["Story B"].waitForExistence(timeout: 1))
+    }
+    
     func testCanNavigateToWholeStory() throws {
         let app = XCUIApplication()
         app.launch()
-        XCUIApplication().buttons["Navigation link at index 0"].tap()
+        XCUIApplication().buttons["Story A"].tap()
         XCTAssertTrue(XCUIApplication().staticTexts["WholeStory"].waitForExistence(timeout: 1))
-
-                
     }
 }
