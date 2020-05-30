@@ -13,8 +13,8 @@ struct StoryListView: View {
     
     @ObservedObject private var viewModel: StoryListViewModel
     
-    init(viewModel:StoryListViewModel) {
-        self.viewModel = viewModel
+    init() {
+        viewModel = StoryListViewModel(model:StubbedStorytimeModel(),numberOfCardInStack:6, widthOfScreen: 400)
     }
     
     var body: some View {
@@ -86,7 +86,7 @@ struct Card : View {
 
 struct StoryListView_Previews: PreviewProvider {
     static var previews: some View {
-        StoryListView(viewModel:StoryListViewModel(model:StubbedStorytimeModel(),numberOfCardInStack:6, widthOfScreen: 400))
+        StoryListView()
     }
 }
 
