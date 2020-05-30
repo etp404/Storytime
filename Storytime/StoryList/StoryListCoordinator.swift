@@ -17,7 +17,7 @@ struct StoryListCoordinator:Coordinator {
     }
     
     func start() {
-        let view = StoryListView(viewModel:StoryListViewModel(model:StubbedStorytimeModel(),numberOfCardInStack:6))
+        let view = StoryListView(viewModel:StoryListViewModel(model:StubbedStorytimeModel(),numberOfCardInStack:6, widthOfScreen: 400))
         let navigation = NavigationView { view }
         let hosting = UIHostingController(rootView: navigation)
         window?.rootViewController = hosting

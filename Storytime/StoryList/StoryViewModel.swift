@@ -12,4 +12,5 @@ struct StoryViewModel : Hashable {
     let storyId:UUID
     let title:String
     let index:Int
+    var xTranslation:Int = 0
 }

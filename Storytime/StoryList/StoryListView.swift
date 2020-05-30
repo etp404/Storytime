@@ -86,7 +86,7 @@ struct Card : View {
 
 struct StoryListView_Previews: PreviewProvider {
     static var previews: some View {
-        StoryListView(viewModel:StoryListViewModel(model:StubbedStorytimeModel(),numberOfCardInStack:6))
+        StoryListView(viewModel:StoryListViewModel(model:StubbedStorytimeModel(),numberOfCardInStack:6, widthOfScreen: 400))
     }
 }
 
