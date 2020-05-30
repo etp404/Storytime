@@ -28,10 +28,8 @@ class StoryListViewModel: NSObject, ObservableObject{
     }
     
     func dismissStory(id:UUID) {
-        var newStoriesInStack = storiesInStack
-        newStoriesInStack.removeAll { (story) -> Bool in
-            story.storyId == id
-        }
+        if storiesInStack[0].storyId != id { return }
+        var newStoriesInStack = Array(storiesInStack.dropFirst())
         let nextStory = model.nextStory()
         newStoriesInStack.append(StoryViewModel(storyId: nextStory.id, title: nextStory.title, index: storiesInStack.count))
         storiesInStack = zip(newStoriesInStack.indices, newStoriesInStack).map{ index, story in

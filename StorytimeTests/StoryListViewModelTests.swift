@@ -54,9 +54,9 @@ class StoryListViewModelTests: XCTestCase {
     }
     
     func testGivenModelIsToldToDismissStory_thenStoryIsRemovedFromStack() throws {
-        viewModel.dismissStory(id:mockStorytimeModel.storyB.id)
+        viewModel.dismissStory(id:mockStorytimeModel.storyA.id)
         
-        XCTAssertEqual(viewModel.storiesInStack[1].title, "C")
+        XCTAssertEqual(viewModel.storiesInStack[0].storyId, mockStorytimeModel.storyB.id)
     }
     
     
@@ -81,6 +81,13 @@ class StoryListViewModelTests: XCTestCase {
         
         XCTAssertEqual(viewModel.storiesInStack[0].index, 0)
         XCTAssertEqual(viewModel.storiesInStack[2].index, 2)
-        
+    }
+
+    func testGivenModelIsToldToDismissStoryNotAtFrontOfStack_thenItCannotBeDismissed() throws {
+        viewModel.dismissStory(id:mockStorytimeModel.storyB.id)
+
+        XCTAssertEqual(viewModel.storiesInStack[0].storyId, mockStorytimeModel.storyA.id)
+        XCTAssertEqual(viewModel.storiesInStack[1].storyId, mockStorytimeModel.storyB.id)
+        XCTAssertEqual(mockStorytimeModel.dismissedStoryIds.count, 0)
     }
 }
