@@ -41,7 +41,7 @@ class StoryListViewModel: NSObject, ObservableObject{
 
     func swipeComplete(on story:StoryViewModel) {
         let newStoriesInStack:[StoryViewModel]
-        if story.index == 0 {
+        if story.index == 0 && story.xTranslation > widthOfScreen/2 {
             newStoriesInStack = Array(storiesInStack.dropFirst())
         }
         else {

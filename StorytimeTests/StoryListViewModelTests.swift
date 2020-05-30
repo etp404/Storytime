@@ -92,7 +92,7 @@ class StoryListViewModelTests: XCTestCase {
     }
 
     func testGivenCardIsAtFront_WhenItIsMovedMoreThanHalfWayAcrossScreen_ThenitIsDismissedFromStack() {
-        viewModel.storiesInStack[0].xTranslation = widthOfScreen + 1
+        viewModel.storiesInStack[0].xTranslation = widthOfScreen/2 + 1
         viewModel.swipeComplete(on: viewModel.storiesInStack[0])
 
         XCTAssertEqual(viewModel.storiesInStack[0].storyId, mockStorytimeModel.storyB.id)
@@ -100,7 +100,7 @@ class StoryListViewModelTests: XCTestCase {
     }
 
     func testGivenCardIsNotAtFront_WhenItIsMovedMoreThanHalfWayAcrossScreen_ThenItIsNotDismissedFromStack() {
-        viewModel.storiesInStack[1].xTranslation = widthOfScreen + 1
+        viewModel.storiesInStack[1].xTranslation = widthOfScreen/2 + 1
         viewModel.swipeComplete(on: viewModel.storiesInStack[1])
 
         XCTAssertEqual(viewModel.storiesInStack[0].storyId, mockStorytimeModel.storyA.id)
@@ -109,7 +109,12 @@ class StoryListViewModelTests: XCTestCase {
     }
 
     func testGivenCardIsAtFront_WhenItIsMovedLessThanHalfWayAcrossScreen_ThenItIsNotDismissedFromStack() {
+        viewModel.storiesInStack[1].xTranslation = widthOfScreen/2 - 1
+        viewModel.swipeComplete(on: viewModel.storiesInStack[0])
 
+        XCTAssertEqual(viewModel.storiesInStack[0].storyId, mockStorytimeModel.storyA.id)
+        XCTAssertEqual(viewModel.storiesInStack[1].storyId, mockStorytimeModel.storyB.id)
+        XCTAssertEqual(viewModel.storiesInStack[1].xTranslation, 0)
     }
 
     func testGivenCardIsAtFront_WhenItIsMovedMoreThanHalfWayAcrossScreen_ThenitIsDismissedFromModel() {
