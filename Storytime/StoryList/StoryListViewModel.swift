@@ -43,6 +43,7 @@ class StoryListViewModel: NSObject, ObservableObject{
         let newStoriesInStack:[StoryViewModel]
         if story.index == 0 && story.xTranslation > widthOfScreen/2 {
             newStoriesInStack = Array(storiesInStack.dropFirst())
+            model.dismissStory(id: story.storyId)
         }
         else {
             newStoriesInStack = storiesInStack
@@ -51,7 +52,5 @@ class StoryListViewModel: NSObject, ObservableObject{
             .map { index, story in
                 StoryViewModel(storyId: story.storyId, title: story.title, index: index, xTranslation: 0)
             }
-        model.dismissStory(id: story.storyId)
-
     }
 }
