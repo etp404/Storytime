@@ -70,10 +70,10 @@ class StoryListViewModelTests: XCTestCase {
     }
     
     func testGivenModelIsToldToDismissStory_thenModelIsInformed() throws {
-        viewModel.dismissStory(id:mockStorytimeModel.storyB.id)
+        viewModel.dismissStory(id:mockStorytimeModel.storyA.id)
         
         XCTAssertEqual(mockStorytimeModel.dismissedStoryIds.count, 1)
-        XCTAssertTrue(mockStorytimeModel.dismissedStoryIds.contains(mockStorytimeModel.storyB.id))
+        XCTAssertTrue(mockStorytimeModel.dismissedStoryIds.contains(mockStorytimeModel.storyA.id))
     }
     
     func testGivenModelIsToldToDismissStory_thenCorrectIndicesAreReturned() throws {
