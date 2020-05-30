@@ -51,6 +51,7 @@ class StoryListViewModel: NSObject, ObservableObject{
             .map { index, story in
                 StoryViewModel(storyId: story.storyId, title: story.title, index: index, xTranslation: 0)
             }
+        model.dismissStory(id: story.storyId)
 
     }
 }

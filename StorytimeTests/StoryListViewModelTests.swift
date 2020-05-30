@@ -118,7 +118,11 @@ class StoryListViewModelTests: XCTestCase {
     }
 
     func testGivenCardIsAtFront_WhenItIsMovedMoreThanHalfWayAcrossScreen_ThenitIsDismissedFromModel() {
+        viewModel.storiesInStack[0].xTranslation = widthOfScreen/2 + 1
+        viewModel.swipeComplete(on: viewModel.storiesInStack[0])
 
+        XCTAssertEqual(mockStorytimeModel.dismissedStoryIds.count, 1)
+        XCTAssertTrue(mockStorytimeModel.dismissedStoryIds.contains(mockStorytimeModel.storyA.id))
     }
 
     func testGivenCardIsNotAtFront_WhenItIsMovedMoreThanHalfWayAcrossScreen_ThenItIsNotDismissedFromModel() {
