@@ -31,7 +31,10 @@ struct StoryListView: View {
                         .offset(x: CGFloat(-story.index * 5), y: CGFloat(-story.index * 10))
                         .zIndex(-Double(story.index))
                     }
-                }
+                }.onAppear(perform: {
+                    self.viewModel.widthOfScreen = Int(geometry.size.width)
+                })
+                
             }
         }
     }
