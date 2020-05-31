@@ -40,7 +40,7 @@ struct StoryListView: View {
 struct Card : View {
     @State private var translation: CGSize = .zero
     private let onDismiss:(UUID)->Void
-    private let story:StoryViewModel
+    @ObservedObject private var story:StoryViewModel
     
     init(story:StoryViewModel, onDismiss: @escaping (UUID)->Void) {
         self.story = story
@@ -65,6 +65,7 @@ struct Card : View {
                         DragGesture()
                             .onChanged { gesture in
                                 self.translation = gesture.translation
+                                self.story.xTranslation = Int(gesture.translation.width)
                         }.onEnded { gesture in
                             if self.shouldDismiss(geometry, gesture: gesture) {
                                 self.onDismiss(self.story.storyId)

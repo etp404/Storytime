@@ -8,9 +8,19 @@
 
 import UIKit
 
-struct StoryViewModel : Hashable {
+class StoryViewModel : NSObject, ObservableObject {
     let storyId:UUID
     let title:String
     let index:Int
-    var xTranslation:Int = 0
+    var xTranslation:Int 
+    
+    init(storyId:UUID,
+         title:String,
+         index:Int,
+         xTranslation:Int = 0) {
+        self.storyId = storyId
+        self.title = title
+        self.index = index
+        self.xTranslation = xTranslation
+    }
 }
