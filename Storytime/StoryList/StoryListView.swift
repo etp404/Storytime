@@ -41,7 +41,6 @@ struct StoryListView: View {
 }
 
 struct Card : View {
-    @State private var translation: CGSize = .zero
     private let onDismiss:(UUID)->Void
     @ObservedObject private var story:StoryCardViewModel
     
@@ -61,18 +60,18 @@ struct Card : View {
                     .background(Color.white)
                     .cornerRadius(10)
                     .shadow(radius: 5)
-                    .offset(x: self.translation.width, y: self.translation.height)
+                    .offset(x: self.story.translation.width, y: self.story.translation.height)
                     .animation(.interactiveSpring())
-                    .rotationEffect(.degrees(Double(self.translation.width / geometry.size.width) * 25), anchor: .bottom)
+                    .rotationEffect(.degrees(Double(self.story.translation.width / geometry.size.width) * 25), anchor: .bottom)
                     .gesture(
                         DragGesture()
                             .onChanged { gesture in
-                                self.translation = gesture.translation
+                                self.story.translation = gesture.translation
                         }.onEnded { gesture in
                             if self.shouldDismiss(geometry, gesture: gesture) {
                                 self.onDismiss(self.story.storyId)
                             } else {
-                                self.translation = .zero
+                                self.story.translation = .zero
                             }
                         }
                 )
