@@ -40,10 +40,12 @@ class StoryListViewModel: NSObject, ObservableObject{
     }
 
     func swipeComplete(on story:StoryCardViewModel) {
-        let newStoriesInStack:[StoryCardViewModel]
+        var newStoriesInStack:[StoryCardViewModel]
         if story.index == 0 && story.translation.width > widthOfScreen/2 {
             newStoriesInStack = Array(storiesInStack.dropFirst())
             model.dismissStory(id: story.storyId)
+            let nextStory = model.nextStory()
+            newStoriesInStack.append(StoryCardViewModel(storyId: nextStory.id, title: nextStory.title, index: storiesInStack.count))
         }
         else {
             newStoriesInStack = storiesInStack

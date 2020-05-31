@@ -54,15 +54,6 @@ class StoryListViewModelTests: XCTestCase {
         XCTAssertEqual(viewModel.storiesInStack[1].title, "B")
     }
     
-    func testGivenModelIsToldToDismissStory_anotherStoryIsObtainedFromModel() throws {
-        viewModel.dismissStory(id:mockStorytimeModel.storyA.id)
-        viewModel.dismissStory(id:mockStorytimeModel.storyB.id)
-        viewModel.dismissStory(id:mockStorytimeModel.storyC.id)
-
-        XCTAssertEqual(viewModel.storiesInStack.count, 3)
-        XCTAssertEqual(viewModel.storiesInStack[2].storyId, mockStorytimeModel.storyE.id)
-    }
-    
     func testGivenModelIsToldToDismissStory_thenCorrectIndicesAreReturned() throws {
         viewModel.dismissStory(id:mockStorytimeModel.storyA.id)
         
@@ -125,4 +116,17 @@ class StoryListViewModelTests: XCTestCase {
         XCTAssertEqual(viewModel.storiesInStack[0].index, 0)
         XCTAssertEqual(viewModel.storiesInStack[1].index, 1)
    }
+    
+    
+    func testGivenModelIsToldToDismissStory_anotherStoryIsObtainedFromModel() throws {
+        viewModel.storiesInStack[0].translation = CGSize(width:widthOfScreen/2.0 + 1.0, height:0.0)
+        viewModel.swipeComplete(on: viewModel.storiesInStack[0])
+        viewModel.storiesInStack[0].translation = CGSize(width:widthOfScreen/2.0 + 1.0, height:0.0)
+        viewModel.swipeComplete(on: viewModel.storiesInStack[0])
+        viewModel.storiesInStack[0].translation = CGSize(width:widthOfScreen/2.0 + 1.0, height:0.0)
+        viewModel.swipeComplete(on: viewModel.storiesInStack[0])
+
+        XCTAssertEqual(viewModel.storiesInStack.count, 3)
+        XCTAssertEqual(viewModel.storiesInStack[2].storyId, mockStorytimeModel.storyE.id)
+    }
 }
