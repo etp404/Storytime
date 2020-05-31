@@ -64,13 +64,6 @@ class StoryListViewModelTests: XCTestCase {
         XCTAssertEqual(viewModel.storiesInStack[1].title, "B")
     }
     
-    func testGivenModelIsToldToDismissStory_thenCorrectIndicesAreReturned() throws {
-        viewModel.dismissStory(id:mockStorytimeModel.storyA.id)
-        
-        XCTAssertEqual(viewModel.storiesInStack[0].index, 0)
-        XCTAssertEqual(viewModel.storiesInStack[2].index, 2)
-    }
-
     func testGivenCardIsAtFront_WhenItIsMovedMoreThanHalfWayAcrossScreen_ThenitIsDismissedFromStack() {
         viewModel.storiesInStack[0].translation = CGSize(width:widthOfScreen/2.0 + 1.0, height:0.0)
         viewModel.swipeComplete(on: viewModel.storiesInStack[0])

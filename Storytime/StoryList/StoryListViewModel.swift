@@ -24,17 +24,6 @@ class StoryListViewModel: NSObject, ObservableObject{
         super.init()
         updateStoriesInStack()
     }
-    
-    func dismissStory(id:UUID) {
-        if storiesInStack[0].storyId != id { return }
-        var newStoriesInStack = Array(storiesInStack.dropFirst())
-        let nextStory = model.nextStory()
-        newStoriesInStack.append(StoryCardViewModel(storyId: nextStory.id, title: nextStory.title, index: storiesInStack.count))
-        storiesInStack = zip(newStoriesInStack.indices, newStoriesInStack).map{ index, story in
-            StoryCardViewModel(storyId:story.storyId, title:story.title, index:index)
-        }
-        model.dismissStory(id: id)
-    }
 
     func swipeComplete(on story:StoryCardViewModel) {
         if shouldDimiss(story) {
