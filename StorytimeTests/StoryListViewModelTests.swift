@@ -117,4 +117,12 @@ class StoryListViewModelTests: XCTestCase {
         
         XCTAssertEqual(mockStorytimeModel.dismissedStoryIds.count, 0)
     }
+    
+    func testGivenCardIsDismissed_IndicesAreUpdated() {
+       viewModel.storiesInStack[0].translation = CGSize(width:widthOfScreen/2.0 + 1.0, height:0.0)
+       viewModel.swipeComplete(on: viewModel.storiesInStack[0])
+       
+        XCTAssertEqual(viewModel.storiesInStack[0].index, 0)
+        XCTAssertEqual(viewModel.storiesInStack[1].index, 1)
+   }
 }
