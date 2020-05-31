@@ -37,7 +37,7 @@ class StoryListViewModelTests: XCTestCase {
     }
     
     let numberOfStoriesInStack:Int = 3
-    let widthOfScreen = 400
+    let widthOfScreen:Float = 400.0
 
     var viewModel:StoryListViewModel!
     var mockStorytimeModel:MockStorytimeModel!
@@ -109,7 +109,7 @@ class StoryListViewModelTests: XCTestCase {
     }
 
     func testGivenCardIsAtFront_WhenItIsMovedLessThanHalfWayAcrossScreen_ThenItIsNotDismissedFromStack() {
-        viewModel.storiesInStack[1].xTranslation = widthOfScreen/2 - 1
+        viewModel.storiesInStack[1].xTranslation = widthOfScreen/2.0 - 1.0
         viewModel.swipeComplete(on: viewModel.storiesInStack[0])
 
         XCTAssertEqual(viewModel.storiesInStack[0].storyId, mockStorytimeModel.storyA.id)

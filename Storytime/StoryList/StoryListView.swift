@@ -32,7 +32,7 @@ struct StoryListView: View {
                         .zIndex(-Double(story.index))
                     }
                 }.onAppear(perform: {
-                    self.viewModel.widthOfScreen = Int(geometry.size.width)
+                    self.viewModel.widthOfScreen = Float(geometry.size.width)
                 })
                 
             }
@@ -68,7 +68,7 @@ struct Card : View {
                         DragGesture()
                             .onChanged { gesture in
                                 self.translation = gesture.translation
-                                self.story.xTranslation = Int(gesture.translation.width)
+                                self.story.xTranslation = Float(gesture.translation.width)
                         }.onEnded { gesture in
                             if self.shouldDismiss(geometry, gesture: gesture) {
                                 self.onDismiss(self.story.storyId)

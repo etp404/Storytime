@@ -12,12 +12,12 @@ class StoryCardViewModel : NSObject, ObservableObject {
     let storyId:UUID
     let title:String
     let index:Int
-    var xTranslation:Int 
+    var xTranslation:Float
     
     init(storyId:UUID,
          title:String,
          index:Int,
-         xTranslation:Int = 0) {
+         xTranslation:Float = 0.0) {
         self.storyId = storyId
         self.title = title
         self.index = index

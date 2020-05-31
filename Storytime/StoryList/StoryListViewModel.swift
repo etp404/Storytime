@@ -12,12 +12,12 @@ class StoryListViewModel: NSObject, ObservableObject{
     
     private let model: StorytimeModel
     private let numberOfCardInStack:Int
-    var widthOfScreen:Int
+    var widthOfScreen:Float
     @Published var storiesInStack:[StoryCardViewModel] = []
     
     init(model:StorytimeModel,
          numberOfCardInStack:Int,
-         widthOfScreen:Int) {
+         widthOfScreen:Float) {
         self.model = model
         self.numberOfCardInStack = numberOfCardInStack
         self.widthOfScreen = widthOfScreen
