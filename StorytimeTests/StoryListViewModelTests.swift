@@ -54,12 +54,6 @@ class StoryListViewModelTests: XCTestCase {
         XCTAssertEqual(viewModel.storiesInStack[1].title, "B")
     }
     
-    func testGivenModelIsToldToDismissStory_thenStoryIsRemovedFromStack() throws {
-        viewModel.dismissStory(id:mockStorytimeModel.storyA.id)
-        
-        XCTAssertEqual(viewModel.storiesInStack[0].storyId, mockStorytimeModel.storyB.id)
-    }
-    
     func testGivenModelIsToldToDismissStory_anotherStoryIsObtainedFromModel() throws {
         viewModel.dismissStory(id:mockStorytimeModel.storyA.id)
         viewModel.dismissStory(id:mockStorytimeModel.storyB.id)
@@ -67,13 +61,6 @@ class StoryListViewModelTests: XCTestCase {
 
         XCTAssertEqual(viewModel.storiesInStack.count, 3)
         XCTAssertEqual(viewModel.storiesInStack[2].storyId, mockStorytimeModel.storyE.id)
-    }
-    
-    func testGivenModelIsToldToDismissStory_thenModelIsInformed() throws {
-        viewModel.dismissStory(id:mockStorytimeModel.storyA.id)
-        
-        XCTAssertEqual(mockStorytimeModel.dismissedStoryIds.count, 1)
-        XCTAssertTrue(mockStorytimeModel.dismissedStoryIds.contains(mockStorytimeModel.storyA.id))
     }
     
     func testGivenModelIsToldToDismissStory_thenCorrectIndicesAreReturned() throws {
