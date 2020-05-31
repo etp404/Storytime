@@ -22,10 +22,10 @@ struct StoryListView: View {
             NavigationView {
                 ZStack {
                     ForEach(self.viewModel.storiesInStack, id: \.storyId) {(story:StoryCardViewModel) in
-                        Card(story:story) {
+                        Card(story:story, onSwipeComplete: {
                             storyId in
-                            self.viewModel.dismissStory(id: storyId)
-                        }
+                            self.viewModel.swipeComplete(on: story)
+                        })
                         .buttonStyle(PlainButtonStyle())
                         .animation(.spring())
                         .offset(x: CGFloat(-story.index * 5), y: CGFloat(-story.index * 10))
@@ -41,12 +41,12 @@ struct StoryListView: View {
 }
 
 struct Card : View {
-    private let onDismiss:(UUID)->Void
+    private let onSwipeComplete:(StoryCardViewModel)->Void
     @ObservedObject private var story:StoryCardViewModel
     
-    init(story:StoryCardViewModel, onDismiss: @escaping (UUID)->Void) {
+    init(story:StoryCardViewModel, onSwipeComplete: @escaping (StoryCardViewModel)->Void) {
         self.story = story
-        self.onDismiss = onDismiss
+        self.onSwipeComplete = onSwipeComplete
     }
     
     var body: some View{
@@ -68,11 +68,7 @@ struct Card : View {
                             .onChanged { gesture in
                                 self.story.translation = gesture.translation
                         }.onEnded { gesture in
-                            if self.shouldDismiss(geometry, gesture: gesture) {
-                                self.onDismiss(self.story.storyId)
-                            } else {
-                                self.story.translation = .zero
-                            }
+                            self.onSwipeComplete(self.story)
                         }
                 )
                     .accessibility(label: Text(self.story.title))
