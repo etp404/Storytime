@@ -75,10 +75,6 @@ struct Card : View {
             }
         }
     }
-    
-    private func shouldDismiss(_ geometry: GeometryProxy, gesture: DragGesture.Value) -> Bool {
-        abs(gesture.translation.width / geometry.size.width) > 0.5
-    }
 }
 
 
