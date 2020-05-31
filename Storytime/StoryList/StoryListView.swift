@@ -21,7 +21,7 @@ struct StoryListView: View {
         GeometryReader { geometry in
             NavigationView {
                 ZStack {
-                    ForEach(self.viewModel.storiesInStack, id: \.storyId) {(story:StoryViewModel) in
+                    ForEach(self.viewModel.storiesInStack, id: \.storyId) {(story:StoryCardViewModel) in
                         Card(story:story) {
                             storyId in
                             self.viewModel.dismissStory(id: storyId)
@@ -43,9 +43,9 @@ struct StoryListView: View {
 struct Card : View {
     @State private var translation: CGSize = .zero
     private let onDismiss:(UUID)->Void
-    @ObservedObject private var story:StoryViewModel
+    @ObservedObject private var story:StoryCardViewModel
     
-    init(story:StoryViewModel, onDismiss: @escaping (UUID)->Void) {
+    init(story:StoryCardViewModel, onDismiss: @escaping (UUID)->Void) {
         self.story = story
         self.onDismiss = onDismiss
     }

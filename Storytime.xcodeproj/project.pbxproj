@@ -19,7 +19,7 @@
 		C9FD27012452DEA300F21EB8 /* Story.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9FD27002452DEA300F21EB8 /* Story.swift */; };
 		C9FD27032452DF1200F21EB8 /* StorytimeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9FD27022452DF1200F21EB8 /* StorytimeModel.swift */; };
 		C9FD27052452DF2D00F21EB8 /* StoryListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9FD27042452DF2D00F21EB8 /* StoryListViewModel.swift */; };
-		C9FD27072452E0C400F21EB8 /* StoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9FD27062452E0C400F21EB8 /* StoryViewModel.swift */; };
+		C9FD27072452E0C400F21EB8 /* StoryCardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9FD27062452E0C400F21EB8 /* StoryCardViewModel.swift */; };
 		C9FD270F24531B1F00F21EB8 /* StoryListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9FD270E24531B1F00F21EB8 /* StoryListView.swift */; };
 		C9FD271124531B5800F21EB8 /* StubbedStorytimeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9FD271024531B5800F21EB8 /* StubbedStorytimeModel.swift */; };
 /* End PBXBuildFile section */
@@ -60,7 +60,7 @@
 		C9FD27002452DEA300F21EB8 /* Story.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Story.swift; sourceTree = "<group>"; };
 		C9FD27022452DF1200F21EB8 /* StorytimeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorytimeModel.swift; sourceTree = "<group>"; };
 		C9FD27042452DF2D00F21EB8 /* StoryListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryListViewModel.swift; sourceTree = "<group>"; };
-		C9FD27062452E0C400F21EB8 /* StoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryViewModel.swift; sourceTree = "<group>"; };
+		C9FD27062452E0C400F21EB8 /* StoryCardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryCardViewModel.swift; sourceTree = "<group>"; };
 		C9FD270E24531B1F00F21EB8 /* StoryListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryListView.swift; sourceTree = "<group>"; };
 		C9FD271024531B5800F21EB8 /* StubbedStorytimeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StubbedStorytimeModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -94,7 +94,7 @@
 			isa = PBXGroup;
 			children = (
 				C9FD27042452DF2D00F21EB8 /* StoryListViewModel.swift */,
-				C9FD27062452E0C400F21EB8 /* StoryViewModel.swift */,
+				C9FD27062452E0C400F21EB8 /* StoryCardViewModel.swift */,
 				C9FD270E24531B1F00F21EB8 /* StoryListView.swift */,
 			);
 			path = StoryList;
@@ -310,7 +310,7 @@
 				C9FD271124531B5800F21EB8 /* StubbedStorytimeModel.swift in Sources */,
 				C9FD26D52452DC1D00F21EB8 /* ContentView.swift in Sources */,
 				C9FD27012452DEA300F21EB8 /* Story.swift in Sources */,
-				C9FD27072452E0C400F21EB8 /* StoryViewModel.swift in Sources */,
+				C9FD27072452E0C400F21EB8 /* StoryCardViewModel.swift in Sources */,
 				C992A2BD2466B5BB00FD8547 /* WholeStoryView.swift in Sources */,
 				C9FD270F24531B1F00F21EB8 /* StoryListView.swift in Sources */,
 				C9FD27032452DF1200F21EB8 /* StorytimeModel.swift in Sources */,

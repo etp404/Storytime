@@ -8,7 +8,7 @@
 
 import UIKit
 
-class StoryViewModel : NSObject, ObservableObject {
+class StoryCardViewModel : NSObject, ObservableObject {
     let storyId:UUID
     let title:String
     let index:Int

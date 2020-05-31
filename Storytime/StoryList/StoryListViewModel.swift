@@ -12,8 +12,8 @@ class StoryListViewModel: NSObject, ObservableObject{
     
     private let model: StorytimeModel
     private let numberOfCardInStack:Int
-    private let widthOfScreen:Int
-    @Published var storiesInStack:[StoryViewModel] = []
+    var widthOfScreen:Int
+    @Published var storiesInStack:[StoryCardViewModel] = []
     
     init(model:StorytimeModel,
          numberOfCardInStack:Int,
@@ -24,7 +24,7 @@ class StoryListViewModel: NSObject, ObservableObject{
         let storiesToShow = self.model.stories().prefix(numberOfCardInStack)
         storiesInStack = zip(storiesToShow.indices, storiesToShow)
             .map{ index, story in
-                StoryViewModel(storyId:story.id, title:story.title, index: index)
+                StoryCardViewModel(storyId:story.id, title:story.title, index: index)
         }
     }
     
@@ -32,15 +32,15 @@ class StoryListViewModel: NSObject, ObservableObject{
         if storiesInStack[0].storyId != id { return }
         var newStoriesInStack = Array(storiesInStack.dropFirst())
         let nextStory = model.nextStory()
-        newStoriesInStack.append(StoryViewModel(storyId: nextStory.id, title: nextStory.title, index: storiesInStack.count))
+        newStoriesInStack.append(StoryCardViewModel(storyId: nextStory.id, title: nextStory.title, index: storiesInStack.count))
         storiesInStack = zip(newStoriesInStack.indices, newStoriesInStack).map{ index, story in
-            StoryViewModel(storyId:story.storyId, title:story.title, index:index)
+            StoryCardViewModel(storyId:story.storyId, title:story.title, index:index)
         }
         model.dismissStory(id: id)
     }
 
-    func swipeComplete(on story:StoryViewModel) {
-        let newStoriesInStack:[StoryViewModel]
+    func swipeComplete(on story:StoryCardViewModel) {
+        let newStoriesInStack:[StoryCardViewModel]
         if story.index == 0 && story.xTranslation > widthOfScreen/2 {
             newStoriesInStack = Array(storiesInStack.dropFirst())
             model.dismissStory(id: story.storyId)
@@ -50,7 +50,7 @@ class StoryListViewModel: NSObject, ObservableObject{
         }
         storiesInStack = zip(newStoriesInStack.indices, newStoriesInStack)
             .map { index, story in
-                StoryViewModel(storyId: story.storyId, title: story.title, index: index, xTranslation: 0)
+                StoryCardViewModel(storyId: story.storyId, title: story.title, index: index, xTranslation: 0)
             }
     }
 }
