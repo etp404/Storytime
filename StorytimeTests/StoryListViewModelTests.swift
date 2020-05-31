@@ -22,17 +22,27 @@ class StoryListViewModelTests: XCTestCase {
         let storyC = Story(title:"C")
         let storyD = Story(title:"D")
         let storyE = Story(title:"E")
+        let storyF = Story(title:"F")
+
+        lazy var storyList = [storyA,
+                              storyB,
+                              storyC,
+                              storyD,
+                              storyE,
+                              storyF]
         
         var dismissedStoryIds:[UUID] = []
+        
         func stories() -> [Story] {
-            return [storyA,
-                    storyB,
-                    storyC,
-                    storyD]
+            return storyList
         }
         
         func dismissStory(id:UUID) {
             dismissedStoryIds.append(id)
+            storyList.removeAll(where: {story in
+                story.id == id
+            })
+            
         }
     }
     
@@ -127,6 +137,6 @@ class StoryListViewModelTests: XCTestCase {
         viewModel.swipeComplete(on: viewModel.storiesInStack[0])
 
         XCTAssertEqual(viewModel.storiesInStack.count, 3)
-        XCTAssertEqual(viewModel.storiesInStack[2].storyId, mockStorytimeModel.storyE.id)
+        XCTAssertEqual(viewModel.storiesInStack[2].storyId, mockStorytimeModel.storyF.id)
     }
 }

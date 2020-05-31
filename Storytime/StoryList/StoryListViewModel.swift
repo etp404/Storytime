@@ -21,11 +21,8 @@ class StoryListViewModel: NSObject, ObservableObject{
         self.model = model
         self.numberOfCardInStack = numberOfCardInStack
         self.widthOfScreen = widthOfScreen
-        let storiesToShow = self.model.stories().prefix(numberOfCardInStack)
-        storiesInStack = zip(storiesToShow.indices, storiesToShow)
-            .map{ index, story in
-                StoryCardViewModel(storyId:story.id, title:story.title, index: index)
-        }
+        super.init()
+        updateStoriesInStack()
     }
     
     func dismissStory(id:UUID) {
@@ -40,19 +37,21 @@ class StoryListViewModel: NSObject, ObservableObject{
     }
 
     func swipeComplete(on story:StoryCardViewModel) {
-        var newStoriesInStack:[StoryCardViewModel]
-        if story.index == 0 && story.translation.width > widthOfScreen/2 {
-            newStoriesInStack = Array(storiesInStack.dropFirst())
+        if shouldDimiss(story) {
             model.dismissStory(id: story.storyId)
-            let nextStory = model.nextStory()
-            newStoriesInStack.append(StoryCardViewModel(storyId: nextStory.id, title: nextStory.title, index: storiesInStack.count))
         }
-        else {
-            newStoriesInStack = storiesInStack
+        updateStoriesInStack()
+    }
+    
+    private func shouldDimiss(_ story: StoryCardViewModel) -> Bool {
+        return story.index == 0 && story.translation.width > widthOfScreen/2
+    }
+    
+    private func updateStoriesInStack() {
+        let storiesToShow = self.model.stories().prefix(numberOfCardInStack)
+        storiesInStack = zip(storiesToShow.indices, storiesToShow)
+            .map{ index, story in
+                StoryCardViewModel(storyId:story.id, title:story.title, index: index)
         }
-        storiesInStack = zip(newStoriesInStack.indices, newStoriesInStack)
-            .map { index, story in
-                StoryCardViewModel(storyId: story.storyId, title: story.title, index: index, translation: CGSize(width:0, height:0))
-            }
     }
 }

@@ -9,29 +9,32 @@
 import UIKit
 
 class StubbedStorytimeModel: StorytimeModel {
-
+    
+    private var storyList = [
+        Story(title:"Story A"),
+        Story(title:"Story B"),
+        Story(title:"Story C"),
+        Story(title:"Story D"),
+        Story(title:"Story E"),
+        Story(title:"Story F"),
+        Story(title:"Story G"),
+        Story(title:"Story H"),
+        Story(title:"Story I"),
+        Story(title:"Story J"),
+        Story(title:"Story K"),
+        Story(title:"Story L"),
+        Story(title:"Story M"),
+        Story(title:"Story N"),
+        Story(title:"Story O")]
     
     func stories() -> [Story] {
-        return [
-            Story(title:"Story A"),
-            Story(title:"Story B"),
-            Story(title:"Story C"),
-            Story(title:"Story D"),
-            Story(title:"Story E"),
-            Story(title:"Story F"),
-            Story(title:"Story G"),
-            Story(title:"Story H"),
-            Story(title:"Story I"),
-            Story(title:"Story J"),
-            Story(title:"Story K"),
-            Story(title:"Story L"),
-            Story(title:"Story M"),
-            Story(title:"Story N"),
-            Story(title:"Story O")]
+        return storyList
     }
     
     func dismissStory(id: UUID) {
-        
+        storyList.removeAll(where: {story in
+            story.id == id
+        })
     }
     
     func nextStory() -> Story {
