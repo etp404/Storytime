@@ -14,7 +14,7 @@ struct StoryListView: View {
     @ObservedObject private var viewModel: StoryListViewModel
     
     init() {
-        viewModel = StoryListViewModel(model:StubbedStorytimeModel(),numberOfCardInStack:6, widthOfScreen: 400)
+        viewModel = StoryListViewModel(model:StubbedStorytimeModel(),numberOfCardInStack:6, widthOfScreen: CGFloat(400))
     }
     
     var body: some View {
@@ -32,7 +32,7 @@ struct StoryListView: View {
                         .zIndex(-Double(story.index))
                     }
                 }.onAppear(perform: {
-                    self.viewModel.widthOfScreen = Float(geometry.size.width)
+                    self.viewModel.widthOfScreen = CGFloat(geometry.size.width)
                 })
                 
             }
@@ -68,7 +68,6 @@ struct Card : View {
                         DragGesture()
                             .onChanged { gesture in
                                 self.translation = gesture.translation
-                                self.story.xTranslation = Float(gesture.translation.width)
                         }.onEnded { gesture in
                             if self.shouldDismiss(geometry, gesture: gesture) {
                                 self.onDismiss(self.story.storyId)

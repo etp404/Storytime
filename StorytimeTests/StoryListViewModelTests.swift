@@ -37,7 +37,7 @@ class StoryListViewModelTests: XCTestCase {
     }
     
     let numberOfStoriesInStack:Int = 3
-    let widthOfScreen:Float = 400.0
+    let widthOfScreen = 400.0
 
     var viewModel:StoryListViewModel!
     var mockStorytimeModel:MockStorytimeModel!
@@ -45,7 +45,7 @@ class StoryListViewModelTests: XCTestCase {
     override func setUp() {
         self.continueAfterFailure = true;
         mockStorytimeModel = MockStorytimeModel()
-        viewModel = StoryListViewModel(model:mockStorytimeModel, numberOfCardInStack:numberOfStoriesInStack, widthOfScreen:widthOfScreen)
+        viewModel = StoryListViewModel(model:mockStorytimeModel, numberOfCardInStack:numberOfStoriesInStack, widthOfScreen:CGFloat(widthOfScreen))
     }
   
     func testGivenModelReturnsStories_thenStoriesCanBeReturned() throws {
@@ -92,7 +92,7 @@ class StoryListViewModelTests: XCTestCase {
     }
 
     func testGivenCardIsAtFront_WhenItIsMovedMoreThanHalfWayAcrossScreen_ThenitIsDismissedFromStack() {
-        viewModel.storiesInStack[0].xTranslation = widthOfScreen/2 + 1
+        viewModel.storiesInStack[0].translation = CGSize(width:widthOfScreen/2.0 + 1.0, height:0.0)
         viewModel.swipeComplete(on: viewModel.storiesInStack[0])
 
         XCTAssertEqual(viewModel.storiesInStack[0].storyId, mockStorytimeModel.storyB.id)
@@ -100,25 +100,25 @@ class StoryListViewModelTests: XCTestCase {
     }
 
     func testGivenCardIsNotAtFront_WhenItIsMovedMoreThanHalfWayAcrossScreen_ThenItIsNotDismissedFromStack() {
-        viewModel.storiesInStack[1].xTranslation = widthOfScreen/2 + 1
+        viewModel.storiesInStack[1].translation = CGSize(width:widthOfScreen/2.0 + 1.0, height:0.0)
         viewModel.swipeComplete(on: viewModel.storiesInStack[1])
 
         XCTAssertEqual(viewModel.storiesInStack[0].storyId, mockStorytimeModel.storyA.id)
         XCTAssertEqual(viewModel.storiesInStack[1].storyId, mockStorytimeModel.storyB.id)
-        XCTAssertEqual(viewModel.storiesInStack[1].xTranslation, 0)
+        XCTAssertEqual(viewModel.storiesInStack[1].translation, CGSize(width:0.0, height:0.0))
     }
 
     func testGivenCardIsAtFront_WhenItIsMovedLessThanHalfWayAcrossScreen_ThenItIsNotDismissedFromStack() {
-        viewModel.storiesInStack[1].xTranslation = widthOfScreen/2.0 - 1.0
+        viewModel.storiesInStack[1].translation = CGSize(width:widthOfScreen/2.0 - 1.0, height:0.0)
         viewModel.swipeComplete(on: viewModel.storiesInStack[0])
 
         XCTAssertEqual(viewModel.storiesInStack[0].storyId, mockStorytimeModel.storyA.id)
         XCTAssertEqual(viewModel.storiesInStack[1].storyId, mockStorytimeModel.storyB.id)
-        XCTAssertEqual(viewModel.storiesInStack[1].xTranslation, 0)
+        XCTAssertEqual(viewModel.storiesInStack[1].translation, CGSize(width:0.0, height:0.0))
     }
 
     func testGivenCardIsAtFront_WhenItIsMovedMoreThanHalfWayAcrossScreen_ThenitIsDismissedFromModel() {
-        viewModel.storiesInStack[0].xTranslation = widthOfScreen/2 + 1
+        viewModel.storiesInStack[0].translation = CGSize(width:widthOfScreen/2.0 + 1.0, height:0.0)
         viewModel.swipeComplete(on: viewModel.storiesInStack[0])
 
         XCTAssertEqual(mockStorytimeModel.dismissedStoryIds.count, 1)
@@ -126,14 +126,14 @@ class StoryListViewModelTests: XCTestCase {
     }
 
     func testGivenCardIsNotAtFront_WhenItIsMovedMoreThanHalfWayAcrossScreen_ThenItIsNotDismissedFromModel() {
-        viewModel.storiesInStack[1].xTranslation = widthOfScreen/2 + 1
+        viewModel.storiesInStack[1].translation = CGSize(width:widthOfScreen/2.0 + 1.0, height:0.0)
         viewModel.swipeComplete(on: viewModel.storiesInStack[1])
 
         XCTAssertEqual(mockStorytimeModel.dismissedStoryIds.count, 0)
     }
 
     func testGivenCardIsAtFront_WhenItIsMovedLessThanHalfWayAcrossScreen_ThenItIsNotDismissedFromModel() {
-        viewModel.storiesInStack[1].xTranslation = widthOfScreen/2 - 1
+        viewModel.storiesInStack[1].translation = CGSize(width:widthOfScreen/2.0 - 1.0, height:0.0)
         viewModel.swipeComplete(on: viewModel.storiesInStack[0])
         
         XCTAssertEqual(mockStorytimeModel.dismissedStoryIds.count, 0)

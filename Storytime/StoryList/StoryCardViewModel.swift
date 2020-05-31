@@ -12,15 +12,15 @@ class StoryCardViewModel : NSObject, ObservableObject {
     let storyId:UUID
     let title:String
     let index:Int
-    var xTranslation:Float
+    var translation:CGSize
     
     init(storyId:UUID,
          title:String,
          index:Int,
-         xTranslation:Float = 0.0) {
+         translation:CGSize = CGSize(width:0.0, height:0.0)) {
         self.storyId = storyId
         self.title = title
         self.index = index
-        self.xTranslation = xTranslation
+        self.translation = translation
     }
 }

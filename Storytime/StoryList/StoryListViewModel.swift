@@ -12,12 +12,12 @@ class StoryListViewModel: NSObject, ObservableObject{
     
     private let model: StorytimeModel
     private let numberOfCardInStack:Int
-    var widthOfScreen:Float
+    var widthOfScreen:CGFloat
     @Published var storiesInStack:[StoryCardViewModel] = []
     
     init(model:StorytimeModel,
          numberOfCardInStack:Int,
-         widthOfScreen:Float) {
+         widthOfScreen:CGFloat) {
         self.model = model
         self.numberOfCardInStack = numberOfCardInStack
         self.widthOfScreen = widthOfScreen
@@ -41,7 +41,7 @@ class StoryListViewModel: NSObject, ObservableObject{
 
     func swipeComplete(on story:StoryCardViewModel) {
         let newStoriesInStack:[StoryCardViewModel]
-        if story.index == 0 && story.xTranslation > widthOfScreen/2 {
+        if story.index == 0 && story.translation.width > widthOfScreen/2 {
             newStoriesInStack = Array(storiesInStack.dropFirst())
             model.dismissStory(id: story.storyId)
         }
@@ -50,7 +50,7 @@ class StoryListViewModel: NSObject, ObservableObject{
         }
         storiesInStack = zip(newStoriesInStack.indices, newStoriesInStack)
             .map { index, story in
-                StoryCardViewModel(storyId: story.storyId, title: story.title, index: index, xTranslation: 0)
+                StoryCardViewModel(storyId: story.storyId, title: story.title, index: index, translation: CGSize(width:0, height:0))
             }
     }
 }
