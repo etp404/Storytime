@@ -10,6 +10,12 @@ import UIKit
 @testable import Storytime
 
 class MockStorytimeModel : StorytimeModel {
+   
+    
+    func story(id: UUID) -> Story {
+        return storiesById[id]!
+    }
+    
     func nextStory() -> Story {
         storyE
     }
@@ -21,12 +27,22 @@ class MockStorytimeModel : StorytimeModel {
     let storyE = Story(title:"E")
     let storyF = Story(title:"F")
 
-    lazy var storyList = [storyA,
-                          storyB,
-                          storyC,
-                          storyD,
-                          storyE,
-                          storyF]
+    lazy var storiesById:[UUID:Story] = [
+        storyA.id: storyA,
+        storyB.id: storyB,
+        storyC.id: storyC,
+        storyD.id: storyD,
+        storyE.id: storyE,
+        storyF.id: storyF
+    ]
+    
+    lazy var storyList = [
+        storyA,
+        storyB,
+        storyC,
+        storyD,
+        storyE,
+        storyF]
     
     var dismissedStoryIds:[UUID] = []
     

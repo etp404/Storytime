@@ -9,6 +9,7 @@
 import UIKit
 
 class StubbedStorytimeModel: StorytimeModel {
+
     
     private var storyList = [
         Story(title:"101 Dalmations",
@@ -32,6 +33,13 @@ class StubbedStorytimeModel: StorytimeModel {
     
     func stories() -> [Story] {
         return storyList
+    }
+    
+    func story(id: UUID) -> Story {
+//        return storyList.first(where: {story in
+//            story.id == id
+//        }) ??
+            return Story(title: "")
     }
     
     func dismissStory(id: UUID) {
