@@ -16,4 +16,10 @@ struct WholeStoryViewModel {
             story.title
         }
     }
+    
+    var content:[String] {
+        get {
+            story.content
+        }
+    }
 }

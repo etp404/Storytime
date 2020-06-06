@@ -22,7 +22,11 @@ class WholeStoryViewModelTest: XCTestCase {
     
     func testTitleIsSet() {
         XCTAssertEqual(woleStoryViewModel.title, story.title)
-        
+    }
+    
+    func testAssertContentIsReturned() {
+        XCTAssertEqual(woleStoryViewModel.content[0], story.content[0])
+        XCTAssertEqual(woleStoryViewModel.content[1], story.content[1])
     }
 
 
