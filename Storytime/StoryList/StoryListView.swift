@@ -25,10 +25,8 @@ struct StoryListView: View {
                         Card(story:story, onSwipeComplete: {
                             storyId in
                             self.viewModel.swipeComplete(on: story)
-                        },
-                             wholeStoryView: WholeStoryView(viewModel:WholeStoryViewModel(story:Story(title: "")))
-                        )
-                            .buttonStyle(PlainButtonStyle())
+                        })
+                        .buttonStyle(PlainButtonStyle())
                         .animation(.spring())
                         .offset(x: CGFloat(-story.index * 5), y: CGFloat(-story.index * 10))
                         .zIndex(-Double(story.index))
@@ -46,17 +44,15 @@ struct Card : View {
     private let onSwipeComplete:(StoryCardViewModel)->Void
     @ObservedObject private var story:StoryCardViewModel
     private let textPadding:CGFloat = 15.0
-    private let wholeStoryView:WholeStoryView
-    
-    init(story:StoryCardViewModel, onSwipeComplete: @escaping (StoryCardViewModel)->Void, wholeStoryView:WholeStoryView) {
+
+    init(story:StoryCardViewModel, onSwipeComplete: @escaping (StoryCardViewModel)->Void) {
         self.story = story
         self.onSwipeComplete = onSwipeComplete
-        self.wholeStoryView = wholeStoryView
     }
     
     var body: some View{
         GeometryReader { geometry in
-            NavigationLink(destination: self.wholeStoryView) {
+            NavigationLink(destination: WholeStoryView()) {
                 VStack {
                     Text(self.story.title)
                         .font(.title)
