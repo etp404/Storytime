@@ -9,7 +9,8 @@
 import SwiftUI
 
 struct WholeStoryView: View {
-
+    let viewModel:WholeStoryViewModel
+    
     var body: some View {
         Text("WholeStory")
     }
@@ -17,6 +18,8 @@ struct WholeStoryView: View {
 
 struct WholeStoryView_Previews: PreviewProvider {
     static var previews: some View {
-        WholeStoryView()
+        WholeStoryView(viewModel:WholeStoryViewModel(story:Story(title:"It's the title",
+                                                       content:["It's the first paragraph",
+                                                                "It's the second paragraph"])))
     }
 }
