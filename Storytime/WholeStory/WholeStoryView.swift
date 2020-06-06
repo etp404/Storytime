@@ -10,13 +10,15 @@ import SwiftUI
 
 struct WholeStoryView: View {
 
+    let wholeStoryViewModel:WholeStoryViewModel
+    
     var body: some View {
-        Text("WholeStory")
+        Text(wholeStoryViewModel.title)
     }
 }
 
 struct WholeStoryView_Previews: PreviewProvider {
     static var previews: some View {
-        WholeStoryView()
+        WholeStoryView(wholeStoryViewModel: WholeStoryViewModel(story:Story(title:"A title")))
     }
 }

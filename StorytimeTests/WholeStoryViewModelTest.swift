@@ -9,14 +9,6 @@
 import XCTest
 @testable import Storytime
 
-struct StorytimeViewNavigation {
-    let storytimeModel:StorytimeModel
-    
-    func wholeStoryViewModel(id:UUID) -> WholeStoryViewModel {
-        return WholeStoryViewModel(story: storytimeModel.story(id:id))
-    }
-}
-
 class WholeStoryViewModelTest: XCTestCase {
 
     let mockStorytimeModel = MockStorytimeModel()

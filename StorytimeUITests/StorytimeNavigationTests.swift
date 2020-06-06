@@ -34,6 +34,6 @@ class StorytimeNavigationTests: XCTestCase {
         let app = XCUIApplication()
         app.launch()
         app.buttons.containing(NSPredicate(format: "label CONTAINS '101 Dalmations'")).element.tap()
-        XCTAssertTrue(app.staticTexts["WholeStory"].waitForExistence(timeout: 1))
+        XCTAssertTrue(app.staticTexts.containing(NSPredicate(format: "label CONTAINS '101 Dalmations'")).element.waitForExistence(timeout: 1))
     }
 }
