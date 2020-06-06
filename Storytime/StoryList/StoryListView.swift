@@ -43,7 +43,8 @@ struct StoryListView: View {
 struct Card : View {
     private let onSwipeComplete:(StoryCardViewModel)->Void
     @ObservedObject private var story:StoryCardViewModel
-    
+    private let textPadding:CGFloat = 15.0
+
     init(story:StoryCardViewModel, onSwipeComplete: @escaping (StoryCardViewModel)->Void) {
         self.story = story
         self.onSwipeComplete = onSwipeComplete
@@ -52,24 +53,37 @@ struct Card : View {
     var body: some View{
         GeometryReader { geometry in
             NavigationLink(destination: WholeStoryView()) {
-                Text(self.story.title)
-                    .font(.title)
-                    .bold()
-                    .padding(.horizontal)
-                    .frame(width:  geometry.size.width*0.8, height:  geometry.size.height*0.8, alignment: .center)
-                    .background(Color.white)
-                    .cornerRadius(10)
-                    .shadow(radius: 5)
-                    .offset(x: self.story.translation.width, y: self.story.translation.height)
-                    .animation(.interactiveSpring())
-                    .rotationEffect(.degrees(Double(self.story.translation.width / geometry.size.width) * 25), anchor: .bottom)
-                    .gesture(
-                        DragGesture()
-                            .onChanged { gesture in
-                                self.story.translation = gesture.translation
-                        }.onEnded { gesture in
-                            self.onSwipeComplete(self.story)
-                        }
+                VStack {
+                    Text(self.story.title)
+                        .font(.title)
+                        .bold()
+                        .padding(.horizontal)
+                        .padding(.leading, self.textPadding)
+                        .padding(.trailing, self.textPadding)
+                        .padding(.bottom, self.textPadding)
+                        .padding(.top, 80)
+                    Text(self.story.content)
+                        .font(.system(size: 16, weight:.light, design: .serif))
+                        .multilineTextAlignment(.leading)
+                        .allowsTightening(true)
+                        .padding(.leading, self.textPadding)
+                        .padding(.trailing, self.textPadding)
+                    Spacer()
+                }
+                .frame(width:  geometry.size.width*0.8, height:  geometry.size.height*0.8, alignment: .center)
+                .background(Color.white)
+                .cornerRadius(10)
+                .shadow(radius: 5)
+                .offset(x: self.story.translation.width, y: self.story.translation.height)
+                .animation(.interactiveSpring())
+                .rotationEffect(.degrees(Double(self.story.translation.width / geometry.size.width) * 25), anchor: .bottom)
+                .gesture(
+                    DragGesture()
+                        .onChanged { gesture in
+                            self.story.translation = gesture.translation
+                    }.onEnded { gesture in
+                        self.onSwipeComplete(self.story)
+                    }
                 )
                     .accessibility(label: Text(self.story.title))
             }

@@ -11,7 +11,10 @@ import UIKit
 class StubbedStorytimeModel: StorytimeModel {
     
     private var storyList = [
-        Story(title:"Story A"),
+        Story(title:"101 Dalmations",
+              content: ["‘Ladies and gentlemen,’ she said, dramatically, ‘puppies are arriving earlier than expected. Mr and Mrs Dearly ask you to remember that Missis has never before been a mother. She needs absolute quiet.’",
+                        "There was an instant silence, broken only by a stifled sneeze. Then the guests rose, drank a whispered toast to the young mother, and tiptoed from the house.",
+                        "All except Cruella de Vil. When she reached the hall she went straight to Nanny Butler, who was seeing the guests out, and demanded:‘Where are those puppies?’"]),
         Story(title:"Story B"),
         Story(title:"Story C"),
         Story(title:"Story D"),
