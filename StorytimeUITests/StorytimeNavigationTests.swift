@@ -26,14 +26,14 @@ class StorytimeNavigationTests: XCTestCase {
     func testStoriesCanBeDimissed() throws {
         let app = XCUIApplication()
         app.launch()
-        app.buttons["Story A"].swipeRight()
-        XCTAssertTrue(XCUIApplication().buttons["Story B"].waitForExistence(timeout: 1))
+        app.buttons.containing(NSPredicate(format: "label CONTAINS '101 Dalmations'")).element.swipeRight()
+        XCTAssertTrue(app.buttons.containing(NSPredicate(format: "label CONTAINS 'Story B'")).element.waitForExistence(timeout: 1))
     }
     
     func testCanNavigateToWholeStory() throws {
         let app = XCUIApplication()
         app.launch()
-        XCUIApplication().buttons["Story A"].tap()
-        XCTAssertTrue(XCUIApplication().staticTexts["WholeStory"].waitForExistence(timeout: 1))
+        app.buttons.containing(NSPredicate(format: "label CONTAINS '101 Dalmations'")).element.tap()
+        XCTAssertTrue(app.staticTexts["WholeStory"].waitForExistence(timeout: 1))
     }
 }

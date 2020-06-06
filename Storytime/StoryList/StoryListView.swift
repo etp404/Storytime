@@ -85,7 +85,6 @@ struct Card : View {
                         self.onSwipeComplete(self.story)
                     }
                 )
-                    .accessibility(label: Text(self.story.title))
             }
         }
     }
