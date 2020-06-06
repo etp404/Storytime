@@ -13,4 +13,5 @@ protocol StorytimeModel {
     
     func dismissStory(id:UUID)
     func nextStory()->Story
+
 }
