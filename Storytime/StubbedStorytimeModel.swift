@@ -36,10 +36,9 @@ class StubbedStorytimeModel: StorytimeModel {
     }
     
     func story(id: UUID) -> Story {
-//        return storyList.first(where: {story in
-//            story.id == id
-//        }) ??
-            return Story(title: "")
+        return storyList.first(where: {story in
+            story.id == id
+        }) ?? Story(title: "")
     }
     
     func dismissStory(id: UUID) {
