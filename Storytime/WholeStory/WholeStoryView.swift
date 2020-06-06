@@ -13,12 +13,14 @@ struct WholeStoryView: View {
     let wholeStoryViewModel:WholeStoryViewModel
     
     var body: some View {
-        Text(wholeStoryViewModel.title)
+        Text("")
+        .navigationBarTitle(Text(wholeStoryViewModel.title), displayMode: .inline)
     }
 }
 
 struct WholeStoryView_Previews: PreviewProvider {
     static var previews: some View {
+        
         WholeStoryView(wholeStoryViewModel: WholeStoryViewModel(story:Story(title:"A title")))
     }
 }
