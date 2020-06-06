@@ -10,41 +10,6 @@ import XCTest
 @testable import Storytime
 
 class StoryListViewModelTests: XCTestCase {
-
-    
-    class MockStorytimeModel : StorytimeModel {
-        func nextStory() -> Story {
-            storyE
-        }
-        
-        let storyA = Story(title:"A")
-        let storyB = Story(title:"B")
-        let storyC = Story(title:"C")
-        let storyD = Story(title:"D")
-        let storyE = Story(title:"E")
-        let storyF = Story(title:"F")
-
-        lazy var storyList = [storyA,
-                              storyB,
-                              storyC,
-                              storyD,
-                              storyE,
-                              storyF]
-        
-        var dismissedStoryIds:[UUID] = []
-        
-        func stories() -> [Story] {
-            return storyList
-        }
-        
-        func dismissStory(id:UUID) {
-            dismissedStoryIds.append(id)
-            storyList.removeAll(where: {story in
-                story.id == id
-            })
-            
-        }
-    }
     
     let numberOfStoriesInStack:Int = 3
     let widthOfScreen = 400.0
