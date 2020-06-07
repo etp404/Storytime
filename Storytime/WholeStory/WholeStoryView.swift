@@ -10,12 +10,22 @@ import SwiftUI
 
 struct WholeStoryView: View {
 
-    let wholeStoryViewModel:WholeStoryViewModel
-    
+    private let wholeStoryViewModel:WholeStoryViewModel
+
+    init(wholeStoryViewModel:WholeStoryViewModel) {
+        UITableView.appearance().separatorColor = .clear
+        self.wholeStoryViewModel = wholeStoryViewModel
+    }
+
     var body: some View {
         List {
             ForEach(wholeStoryViewModel.content, id: \.self) {section in
                 Text(section)
+                    .padding(.all)
+                    .background(Color.white)
+                    .cornerRadius(10)
+                    .shadow(radius: 5)
+                    .allowsTightening(true)
             }
         }
         .navigationBarTitle(Text(wholeStoryViewModel.title), displayMode: .inline)
