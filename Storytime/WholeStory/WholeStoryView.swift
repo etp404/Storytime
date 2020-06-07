@@ -13,7 +13,11 @@ struct WholeStoryView: View {
     let wholeStoryViewModel:WholeStoryViewModel
     
     var body: some View {
-        Text("")
+        List {
+            ForEach(wholeStoryViewModel.content, id: \.self) {section in
+                Text(section)
+            }
+        }
         .navigationBarTitle(Text(wholeStoryViewModel.title), displayMode: .inline)
     }
 }
