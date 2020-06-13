@@ -9,13 +9,21 @@
 import SwiftUI
 
 struct MyStoriesView: View {
+    
+    let viewModel: MyStoriesViewModel
+    
+    init() {
+        let storyTimeModel = StubbedStorytimeModel()
+        viewModel = MyStoriesViewModel(model:storyTimeModel)
+    }
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        List {
+            ForEach(viewModel.titles, id: \.self) {title in
+                Text(title)
+            }
+        }
     }
 }
 
-struct MyStoriesView_Previews: PreviewProvider {
-    static var previews: some View {
-        MyStoriesView()
-    }
-}
+
