@@ -30,11 +30,17 @@ class StoryListViewModel: NSObject, ObservableObject{
             model.dismissStory(id: story.storyId)
         }
         updateStoriesInStack()
-        model.likeStory(id: story.storyId)
+        if shouldLike(story) {
+            model.likeStory(id: story.storyId)
+        }
     }
     
     private func shouldDimiss(_ story: StoryCardViewModel) -> Bool {
         return story.index == 0 && story.translation.width > widthOfScreen/2
+    }
+    
+    private func shouldLike(_ story: StoryCardViewModel) -> Bool {
+        return story.translation.width > 0
     }
     
     private func updateStoriesInStack() {

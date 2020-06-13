@@ -106,6 +106,13 @@ class StoryListViewModelTests: XCTestCase {
         XCTAssertEqual(mockStorytimeModel.savedStories[0], mockStorytimeModel.storyA.id)
     }
     
+    func testGivenStoryIsSwipedLeft_storyIsAddedToFavourites() throws {
+        viewModel.storiesInStack[0].translation = CGSize(width:-widthOfScreen/2.0 - 1.0, height:0.0)
+        viewModel.swipeComplete(on: viewModel.storiesInStack[0])
+
+        XCTAssertEqual(mockStorytimeModel.savedStories.count, 0)
+    }
+    
     func testGivenStoryHasContent_contentIsIncludedInViewModel() {
         XCTAssertEqual(viewModel.storiesInStack[0].content, mockStorytimeModel.storyA.content[0])
     }
