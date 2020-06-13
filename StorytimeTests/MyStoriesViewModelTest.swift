@@ -14,10 +14,9 @@ class MyStoriesViewModelTest: XCTestCase {
     func testThatStoryTitlesCanBeReturned() throws {
         let mockModel = MockStorytimeModel()
         let myStoriesViewModel = MyStoriesViewModel(model:MockStorytimeModel())
-        let myStories = myStoriesViewModel.titles
+        let myStories = myStoriesViewModel.myStories
         XCTAssertEqual(myStories.count, 3)
-        XCTAssertEqual(myStories[1], mockModel.myStoryB.title)
-        
+        XCTAssertEqual(myStories[1].title, mockModel.myStoryB.title)
     }
 
 

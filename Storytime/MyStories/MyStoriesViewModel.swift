@@ -8,11 +8,23 @@
 
 import UIKit
 
+struct MyStoriesStoryVM {
+    let id:UUID
+    let title:String
+    
+    init(story:Story) {
+        id = story.id
+        title = story.title
+    }
+}
+
 struct MyStoriesViewModel {
     let storytimeModel:StorytimeModel
-    var titles:[String] {
+    var myStories:[MyStoriesStoryVM] {
         get {
-            storytimeModel.myStories().map{$0.title}
+            storytimeModel.myStories().map {
+                MyStoriesStoryVM(story: $0)
+            }
         }
     }
     

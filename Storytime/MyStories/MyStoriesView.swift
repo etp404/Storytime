@@ -20,8 +20,8 @@ struct MyStoriesView: View {
     var body: some View {
         NavigationView {
             List {
-                ForEach(viewModel.titles, id: \.self) {title in
-                    Text(title)
+                ForEach(viewModel.myStories, id: \.id) {story in
+                    Text(story.title)
                 }
             }
             .navigationBarTitle(Text("My Stories"), displayMode: .inline)
