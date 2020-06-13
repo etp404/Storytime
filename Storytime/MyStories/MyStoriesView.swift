@@ -10,11 +10,10 @@ import SwiftUI
 
 struct MyStoriesView: View {
     
-    let viewModel: MyStoriesViewModel
+    private let viewModel: MyStoriesViewModel
     private let navigation:StorytimeViewNavigation
 
-    init() {
-        let storyTimeModel = StubbedStorytimeModel()
+    init(storyTimeModel: StorytimeModel) {
         viewModel = MyStoriesViewModel(model:storyTimeModel)
         navigation = StorytimeViewNavigation(storytimeModel: storyTimeModel)
     }

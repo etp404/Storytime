@@ -11,9 +11,11 @@ import UIKit
 class StubbedStorytimeModel: StorytimeModel {
 
     func myStories() -> [Story] {
-        [Story(title:"My Story A"),
-        Story(title:"My Story B"),
-        Story(title:"My Story C"),]
+        myStoryIds.map{ id in
+            storyList.first(where: { story in
+                story.id == id
+            }) ?? Story(title:"Unknown")
+        }
     }
     
     var myStoryIds = [UUID]()

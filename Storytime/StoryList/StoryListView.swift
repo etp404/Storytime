@@ -15,8 +15,8 @@ struct StoryListView: View {
     private let navigation:StorytimeViewNavigation
     @ObservedObject private var viewModel: StoryListViewModel
     
-    init() {
-        storyTimeModel = StubbedStorytimeModel()
+    init(storyTimeModel: StorytimeModel) {
+        self.storyTimeModel = storyTimeModel
         viewModel = StoryListViewModel(model:storyTimeModel, numberOfCardInStack:6, widthOfScreen: CGFloat(400))
         navigation = StorytimeViewNavigation(storytimeModel: storyTimeModel)
     }
@@ -100,10 +100,4 @@ struct Card : View {
     }
 }
 
-
-struct StoryListView_Previews: PreviewProvider {
-    static var previews: some View {
-        StoryListView()
-    }
-}
 

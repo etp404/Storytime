@@ -9,14 +9,16 @@
 import SwiftUI
 
 struct Tabs: View {
+    let model = StubbedStorytimeModel()
+    
     var body: some View {
         TabView {
-            StoryListView()
+            StoryListView(storyTimeModel: model)
                 .tabItem {
                     Image(systemName: "sparkles")
             }
             
-            MyStoriesView()
+            MyStoriesView(storyTimeModel: model)
                 .tabItem {
                     Image(systemName: "star.fill")
             }
