@@ -27,6 +27,10 @@ class MockStorytimeModel : StorytimeModel {
     let storyE = Story(title:"E")
     let storyF = Story(title:"F")
 
+    let myStoryA = Story(title:"MyStoryA")
+    let myStoryB = Story(title:"MyStoryB")
+    let myStoryC = Story(title:"MyStoryC")
+    
     lazy var storiesById:[UUID:Story] = [
         storyA.id: storyA,
         storyB.id: storyB,
@@ -56,5 +60,9 @@ class MockStorytimeModel : StorytimeModel {
             story.id == id
         })
         
+    }
+    
+    func myStories() -> [Story] {
+        return [myStoryA, myStoryB, myStoryC]
     }
 }

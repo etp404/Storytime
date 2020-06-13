@@ -9,6 +9,12 @@
 import UIKit
 
 class StubbedStorytimeModel: StorytimeModel {
+    func myStories() -> [Story] {
+        [Story(title:"My Story A"),
+        Story(title:"My Story B"),
+        Story(title:"My Story C"),]
+    }
+    
 
     
     private var storyList = [

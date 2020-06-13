@@ -14,6 +14,8 @@
 		C9B4C8F4248BCE6600D48963 /* MockStorytimeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9B4C8F3248BCE6500D48963 /* MockStorytimeModel.swift */; };
 		C9B4C8F6248BD63E00D48963 /* StorytimeViewNavigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9B4C8F5248BD63E00D48963 /* StorytimeViewNavigation.swift */; };
 		C9BE1FAF24952607004A6A20 /* MyStoriesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9BE1FAE24952607004A6A20 /* MyStoriesView.swift */; };
+		C9BE1FB124952808004A6A20 /* MyStoriesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9BE1FB024952808004A6A20 /* MyStoriesViewModel.swift */; };
+		C9BE1FB32495281C004A6A20 /* MyStoriesViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9BE1FB22495281C004A6A20 /* MyStoriesViewModelTest.swift */; };
 		C9FD26D12452DC1D00F21EB8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9FD26D02452DC1D00F21EB8 /* AppDelegate.swift */; };
 		C9FD26D32452DC1D00F21EB8 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9FD26D22452DC1D00F21EB8 /* SceneDelegate.swift */; };
 		C9FD26D52452DC1D00F21EB8 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9FD26D42452DC1D00F21EB8 /* ContentView.swift */; };
@@ -55,6 +57,8 @@
 		C9B4C8F3248BCE6500D48963 /* MockStorytimeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockStorytimeModel.swift; sourceTree = "<group>"; };
 		C9B4C8F5248BD63E00D48963 /* StorytimeViewNavigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorytimeViewNavigation.swift; sourceTree = "<group>"; };
 		C9BE1FAE24952607004A6A20 /* MyStoriesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyStoriesView.swift; sourceTree = "<group>"; };
+		C9BE1FB024952808004A6A20 /* MyStoriesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyStoriesViewModel.swift; sourceTree = "<group>"; };
+		C9BE1FB22495281C004A6A20 /* MyStoriesViewModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyStoriesViewModelTest.swift; sourceTree = "<group>"; };
 		C9FD26CD2452DC1D00F21EB8 /* Storytime.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Storytime.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C9FD26D02452DC1D00F21EB8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C9FD26D22452DC1D00F21EB8 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -125,6 +129,7 @@
 			isa = PBXGroup;
 			children = (
 				C9BE1FAE24952607004A6A20 /* MyStoriesView.swift */,
+				C9BE1FB024952808004A6A20 /* MyStoriesViewModel.swift */,
 			);
 			path = MyStories;
 			sourceTree = "<group>";
@@ -186,6 +191,7 @@
 				C9FD26E92452DC2200F21EB8 /* Info.plist */,
 				C9B4C8ED248BB08800D48963 /* WholeStoryViewModelTest.swift */,
 				C9B4C8F3248BCE6500D48963 /* MockStorytimeModel.swift */,
+				C9BE1FB22495281C004A6A20 /* MyStoriesViewModelTest.swift */,
 			);
 			path = StorytimeTests;
 			sourceTree = "<group>";
@@ -340,6 +346,7 @@
 				C9FD271124531B5800F21EB8 /* StubbedStorytimeModel.swift in Sources */,
 				C9FD26D52452DC1D00F21EB8 /* ContentView.swift in Sources */,
 				C9FD27012452DEA300F21EB8 /* Story.swift in Sources */,
+				C9BE1FB124952808004A6A20 /* MyStoriesViewModel.swift in Sources */,
 				C9FD27072452E0C400F21EB8 /* StoryCardViewModel.swift in Sources */,
 				C992A2BD2466B5BB00FD8547 /* WholeStoryView.swift in Sources */,
 				C9FD270F24531B1F00F21EB8 /* StoryListView.swift in Sources */,
@@ -353,6 +360,7 @@
 			files = (
 				C9B4C8EE248BB08800D48963 /* WholeStoryViewModelTest.swift in Sources */,
 				C9B4C8F4248BCE6600D48963 /* MockStorytimeModel.swift in Sources */,
+				C9BE1FB32495281C004A6A20 /* MyStoriesViewModelTest.swift in Sources */,
 				C9FD26E82452DC2200F21EB8 /* StoryListViewModelTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
