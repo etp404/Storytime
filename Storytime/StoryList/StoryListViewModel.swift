@@ -30,6 +30,7 @@ class StoryListViewModel: NSObject, ObservableObject{
             model.dismissStory(id: story.storyId)
         }
         updateStoriesInStack()
+        model.likeStory(id: story.storyId)
     }
     
     private func shouldDimiss(_ story: StoryCardViewModel) -> Bool {

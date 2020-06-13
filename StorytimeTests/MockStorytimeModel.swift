@@ -10,7 +10,9 @@ import UIKit
 @testable import Storytime
 
 class MockStorytimeModel : StorytimeModel {
-   
+    func likeStory(id: UUID) {
+        savedStories.append(id)
+    }
     
     func story(id: UUID) -> Story {
         return storiesById[id]!
@@ -49,6 +51,7 @@ class MockStorytimeModel : StorytimeModel {
         storyF]
     
     var dismissedStoryIds:[UUID] = []
+    var savedStories:[UUID] = []
     
     func stories() -> [Story] {
         return storyList
@@ -65,4 +68,5 @@ class MockStorytimeModel : StorytimeModel {
     func myStories() -> [Story] {
         return [myStoryA, myStoryB, myStoryC]
     }
+        
 }

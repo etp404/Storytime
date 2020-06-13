@@ -9,12 +9,14 @@
 import UIKit
 
 class StubbedStorytimeModel: StorytimeModel {
+
     func myStories() -> [Story] {
         [Story(title:"My Story A"),
         Story(title:"My Story B"),
         Story(title:"My Story C"),]
     }
     
+    var myStoryIds = [UUID]()
 
     
     private var storyList = [
@@ -52,6 +54,11 @@ class StubbedStorytimeModel: StorytimeModel {
             story.id == id
         })
     }
+    
+    func likeStory(id: UUID) {
+        myStoryIds.append(id)
+    }
+    
     
     func nextStory() -> Story {
         Story(title:"Story P")
