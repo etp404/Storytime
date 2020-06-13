@@ -18,10 +18,13 @@ struct MyStoriesView: View {
     }
     
     var body: some View {
-        List {
-            ForEach(viewModel.titles, id: \.self) {title in
-                Text(title)
+        NavigationView {
+            List {
+                ForEach(viewModel.titles, id: \.self) {title in
+                    Text(title)
+                }
             }
+            .navigationBarTitle(Text("My Stories"), displayMode: .inline)
         }
     }
 }
