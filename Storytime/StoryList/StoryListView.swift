@@ -40,7 +40,7 @@ struct StoryListView: View {
                 }.onAppear(perform: {
                     self.viewModel.widthOfScreen = CGFloat(geometry.size.width)
                 })
-                
+                .navigationBarTitle(Text("Storytime"), displayMode: .inline)
             }
         }
     }
