@@ -36,7 +36,7 @@ class StoryListViewModel: NSObject, ObservableObject{
     }
     
     private func shouldDimiss(_ story: StoryCardViewModel) -> Bool {
-        return story.index == 0 && story.translation.width > widthOfScreen/2
+        return story.index == 0 && abs(story.translation.width) > widthOfScreen/2
     }
     
     private func shouldLike(_ story: StoryCardViewModel) -> Bool {
