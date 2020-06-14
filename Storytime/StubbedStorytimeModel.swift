@@ -9,12 +9,16 @@
 import UIKit
 
 class StubbedStorytimeModel: StorytimeModel {
-
-    func myStories() -> [Story] {
-        myStoryIds.map{ id in
-            storyList.first(where: { story in
-                story.id == id
-            }) ?? Story(title:"Unknown")
+    var myStoriesChanged: (() -> Void)?
+    
+    
+    var myStories: [Story] {
+        get {
+            myStoryIds.map{ id in
+                storyList.first(where: { story in
+                    story.id == id
+                }) ?? Story(title:"Unknown")
+            }
         }
     }
     

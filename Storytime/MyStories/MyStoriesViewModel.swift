@@ -18,17 +18,20 @@ struct MyStoriesStoryVM {
     }
 }
 
-struct MyStoriesViewModel {
-    let storytimeModel:StorytimeModel
-    var myStories:[MyStoriesStoryVM] {
-        get {
-            storytimeModel.myStories().map {
+class MyStoriesViewModel {
+    var storytimeModel:StorytimeModel
+    var myStories:[MyStoriesStoryVM]
+    
+    init(model:StorytimeModel) {
+        self.storytimeModel = model
+        myStories = storytimeModel.myStories.map {
+            MyStoriesStoryVM(story: $0)
+        }
+        self.storytimeModel.myStoriesChanged = {
+            self.myStories = self.storytimeModel.myStories.map {
                 MyStoriesStoryVM(story: $0)
             }
         }
     }
     
-    init(model:StorytimeModel) {
-        self.storytimeModel = model
-    }
 }

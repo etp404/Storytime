@@ -18,6 +18,14 @@ class MyStoriesViewModelTest: XCTestCase {
         XCTAssertEqual(myStories.count, 3)
         XCTAssertEqual(myStories[1].title, mockModel.myStoryB.title)
     }
-
+    
+    func testThatStoryTitlesAreUpdatedWhenTheModelIsUpdated() {
+        let mockModel = MockStorytimeModel()
+        let myStoriesViewModel = MyStoriesViewModel(model:mockModel)
+        XCTAssertEqual(myStoriesViewModel.myStories.count, 3)
+        
+        mockModel.addStoryToMyStoriesAndNotify()
+        XCTAssertEqual(myStoriesViewModel.myStories.count, 4)
+    }
 
 }

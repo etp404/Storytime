@@ -9,18 +9,7 @@
 import UIKit
 @testable import Storytime
 
-class MockStorytimeModel : StorytimeModel {
-    func likeStory(id: UUID) {
-        savedStories.append(id)
-    }
-    
-    func story(id: UUID) -> Story {
-        return storiesById[id]!
-    }
-    
-    func nextStory() -> Story {
-        storyE
-    }
+class MockStorytimeModel {
     
     let storyA = Story(title:"A")
     let storyB = Story(title:"B")
@@ -28,10 +17,24 @@ class MockStorytimeModel : StorytimeModel {
     let storyD = Story(title:"D")
     let storyE = Story(title:"E")
     let storyF = Story(title:"F")
-
+    
     let myStoryA = Story(title:"MyStoryA")
     let myStoryB = Story(title:"MyStoryB")
     let myStoryC = Story(title:"MyStoryC")
+    
+    init() {
+       myStoriesInternal = [myStoryA, myStoryB, myStoryC]
+    }
+    
+    var myStoriesInternal:[Story] {
+        didSet {
+            myStoriesChanged?()
+        }
+    }
+    
+    func addStoryToMyStoriesAndNotify() {
+        myStoriesInternal.append(Story(title:"MyStoryD"))
+    }
     
     lazy var storiesById:[UUID:Story] = [
         storyA.id: storyA,
@@ -52,6 +55,32 @@ class MockStorytimeModel : StorytimeModel {
     
     var dismissedStoryIds:[UUID] = []
     var savedStories:[UUID] = []
+    var internalMyStoriesChangedCallback: (() -> Void)?
+    
+}
+
+extension MockStorytimeModel : StorytimeModel {
+    var myStoriesChanged: (() -> Void)? {
+        get {
+            internalMyStoriesChangedCallback
+        }
+        set(newValue) {
+            internalMyStoriesChangedCallback = newValue
+        }
+    }
+    
+    
+    func likeStory(id: UUID) {
+        savedStories.append(id)
+    }
+    
+    func story(id: UUID) -> Story {
+        return storiesById[id]!
+    }
+    
+    func nextStory() -> Story {
+        storyE
+    }
     
     func stories() -> [Story] {
         return storyList
@@ -62,11 +91,12 @@ class MockStorytimeModel : StorytimeModel {
         storyList.removeAll(where: {story in
             story.id == id
         })
-        
     }
     
-    func myStories() -> [Story] {
-        return [myStoryA, myStoryB, myStoryC]
+    var myStories: [Story] {
+        get {
+            return myStoriesInternal
+        }
     }
-        
+    
 }
