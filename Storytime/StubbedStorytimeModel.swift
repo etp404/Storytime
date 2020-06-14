@@ -22,7 +22,11 @@ class StubbedStorytimeModel: StorytimeModel {
         }
     }
     
-    var myStoryIds = [UUID]()
+    var myStoryIds = [UUID]() {
+        didSet {
+            myStoriesChanged?()
+        }
+    }
 
     
     private var storyList = [

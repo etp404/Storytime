@@ -10,7 +10,7 @@ import SwiftUI
 
 struct MyStoriesView: View {
     
-    private let viewModel: MyStoriesViewModel
+    @ObservedObject private var viewModel: MyStoriesViewModel
     private let navigation:StorytimeViewNavigation
 
     init(storyTimeModel: StorytimeModel) {

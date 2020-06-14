@@ -18,9 +18,13 @@ struct MyStoriesStoryVM {
     }
 }
 
-class MyStoriesViewModel {
+class MyStoriesViewModel: ObservableObject {
     var storytimeModel:StorytimeModel
-    var myStories:[MyStoriesStoryVM]
+    @Published var myStories:[MyStoriesStoryVM] {
+        didSet {
+            print(myStories)
+        }
+    }
     
     init(model:StorytimeModel) {
         self.storytimeModel = model
