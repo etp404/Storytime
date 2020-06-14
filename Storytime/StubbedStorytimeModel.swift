@@ -15,7 +15,7 @@ class StubbedStorytimeModel: StorytimeModel {
     var myStories: [Story] {
         get {
             myStoryIds.map{ id in
-                storyList.first(where: { story in
+                storiesAtStary.first(where: { story in
                     story.id == id
                 }) ?? Story(title:"Unknown")
             }
@@ -27,9 +27,8 @@ class StubbedStorytimeModel: StorytimeModel {
             myStoriesChanged?()
         }
     }
-
     
-    private var storyList = [
+    private let storiesAtStary = [
         Story(title:"101 Dalmations",
               content: ["‘Ladies and gentlemen,’ she said, dramatically, ‘puppies are arriving earlier than expected. Mr and Mrs Dearly ask you to remember that Missis has never before been a mother. She needs absolute quiet.’",
                         "There was an instant silence, broken only by a stifled sneeze. Then the guests rose, drank a whispered toast to the young mother, and tiptoed from the house.",
@@ -48,6 +47,8 @@ class StubbedStorytimeModel: StorytimeModel {
         Story(title:"Story M"),
         Story(title:"Story N"),
         Story(title:"Story O")]
+    
+    lazy private var storyList = storiesAtStary
     
     func stories() -> [Story] {
         return storyList
