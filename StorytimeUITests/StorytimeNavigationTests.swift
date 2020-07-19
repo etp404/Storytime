@@ -36,8 +36,5 @@ class StorytimeNavigationTests: XCTestCase {
         app.buttons.containing(NSPredicate(format: "label CONTAINS '101 Dalmations'")).element.tap()
         XCTAssertTrue(app.staticTexts.containing(NSPredicate(format: "label CONTAINS '101 Dalmations'")).element.waitForExistence(timeout: 1))
     }
-    
-    func testThatFails() {
-        XCTFail("Failure to test github action")
-    }
+
 }
