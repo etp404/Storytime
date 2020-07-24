@@ -62,7 +62,6 @@ struct Card : View {
     
     var body: some View{
         GeometryReader { geometry in
-            NavigationLink(destination: WholeStoryView(wholeStoryViewModel: self.navigation.wholeStoryViewModel(id: self.story.storyId))) {
                 VStack {
                     Text(self.story.title)
                         .font(.title)
@@ -100,7 +99,6 @@ struct Card : View {
                     }
                 )
             }
-        }
     }
 }
 
