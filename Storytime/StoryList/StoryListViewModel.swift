@@ -51,7 +51,9 @@ class StoryListViewModel: NSObject, ObservableObject{
                                    title:story.title,
                                    index: index,
                                    content: story.content[0],
-                                   contents: story.contents.map{StorySectionViewModel(id: $0.id, body: $0.body)})
+                                   contents: story.contents.map{
+                                    StorySectionViewModel(id: $0.id, body: $0.body)
+                })
         }
     }
 }

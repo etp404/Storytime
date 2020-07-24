@@ -72,12 +72,16 @@ struct Card : View {
                         .padding(.trailing, self.textPadding)
                         .padding(.bottom, self.textPadding)
                         .padding(.top, 80)
-                    Text(self.story.content)
-                        .font(.system(size: 16, weight:.light, design: .serif))
-                        .multilineTextAlignment(.leading)
-                        .allowsTightening(true)
-                        .padding(.leading, self.textPadding)
-                        .padding(.trailing, self.textPadding)
+                    List {
+                        ForEach(self.story.contents, id:\.id) {content in
+                            Text(content.body)
+                            .font(.system(size: 16, weight:.light, design: .serif))
+                            .multilineTextAlignment(.leading)
+                            .allowsTightening(true)
+                            .padding(.leading, self.textPadding)
+                            .padding(.trailing, self.textPadding)
+                        }
+                    }
                     Spacer()
                 }
                 .frame(width:  geometry.size.width*0.8, height:  geometry.size.height*0.8, alignment: .center)
