@@ -124,5 +124,10 @@ class StoryListViewModelTests: XCTestCase {
     func testGivenStoryHasContent_contentIsIncludedInViewModel() {
         XCTAssertEqual(viewModel.storiesInStack[0].content, mockStorytimeModel.storyA.content[0])
     }
+
+    func testGivenStoryHasContents_contentsAreIncludedInViewModel() {
+        XCTAssertEqual(viewModel.storiesInStack[0].contents[0].body, mockStorytimeModel.storyA.content[0])
+        XCTAssertEqual(viewModel.storiesInStack[1].contents[1].body, mockStorytimeModel.storyB.content[1])
+    }
     
 }

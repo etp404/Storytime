@@ -47,7 +47,11 @@ class StoryListViewModel: NSObject, ObservableObject{
         let storiesToShow = self.model.stories().prefix(numberOfCardInStack)
         storiesInStack = zip(storiesToShow.indices, storiesToShow)
             .map{ index, story in
-                StoryCardViewModel(storyId:story.id, title:story.title, index: index, content: story.content[0])
+                StoryCardViewModel(storyId:story.id,
+                                   title:story.title,
+                                   index: index,
+                                   content: story.content[0],
+                                   contents: story.content.map{StorySectionViewModel(body: $0)})
         }
     }
 }

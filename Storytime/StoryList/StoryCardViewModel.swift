@@ -8,22 +8,29 @@
 
 import UIKit
 
+struct StorySectionViewModel {
+    let body:String
+}
+
 class StoryCardViewModel : NSObject, ObservableObject {
     let storyId:UUID
     let title:String
     let index:Int
     let content:String
+    let contents:[StorySectionViewModel]
     @Published var translation:CGSize
     
     init(storyId:UUID,
          title:String,
          index:Int,
          translation:CGSize = CGSize(width:0.0, height:0.0),
-         content:String = "") {
+         content:String = "",
+         contents:[StorySectionViewModel] = [StorySectionViewModel(body:"")]) {
         self.storyId = storyId
         self.title = title
         self.index = index
         self.translation = translation
         self.content = content
+        self.contents = contents
     }
 }

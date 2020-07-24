@@ -11,8 +11,8 @@ import UIKit
 
 class MockStorytimeModel {
     
-    let storyA = Story(title:"A")
-    let storyB = Story(title:"B")
+    let storyA = Story(title:"A", content: ["Section A1", "Section A2"])
+    let storyB = Story(title:"B", content: ["Section B1", "Section B2"])
     let storyC = Story(title:"C")
     let storyD = Story(title:"D")
     let storyE = Story(title:"E")
