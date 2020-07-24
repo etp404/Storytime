@@ -9,6 +9,7 @@
 import UIKit
 
 struct StorySectionViewModel {
+    let id: UUID
     let body:String
 }
 
@@ -25,7 +26,7 @@ class StoryCardViewModel : NSObject, ObservableObject {
          index:Int,
          translation:CGSize = CGSize(width:0.0, height:0.0),
          content:String = "",
-         contents:[StorySectionViewModel] = [StorySectionViewModel(body:"")]) {
+         contents:[StorySectionViewModel] = [StorySectionViewModel(id : UUID(), body:"")]) {
         self.storyId = storyId
         self.title = title
         self.index = index

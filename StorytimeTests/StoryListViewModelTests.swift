@@ -20,7 +20,9 @@ class StoryListViewModelTests: XCTestCase {
     override func setUp() {
         self.continueAfterFailure = true;
         mockStorytimeModel = MockStorytimeModel()
-        viewModel = StoryListViewModel(model:mockStorytimeModel, numberOfCardInStack:numberOfStoriesInStack, widthOfScreen:CGFloat(widthOfScreen))
+        viewModel = StoryListViewModel(model:mockStorytimeModel,
+                                       numberOfCardInStack:numberOfStoriesInStack,
+                                       widthOfScreen:CGFloat(widthOfScreen))
     }
   
     func testGivenModelReturnsStories_thenStoriesCanBeReturned() throws {
@@ -126,8 +128,10 @@ class StoryListViewModelTests: XCTestCase {
     }
 
     func testGivenStoryHasContents_contentsAreIncludedInViewModel() {
-        XCTAssertEqual(viewModel.storiesInStack[0].contents[0].body, mockStorytimeModel.storyA.content[0])
-        XCTAssertEqual(viewModel.storiesInStack[1].contents[1].body, mockStorytimeModel.storyB.content[1])
+        XCTAssertEqual(viewModel.storiesInStack[0].contents[0].id, mockStorytimeModel.storyA.contents[0].id)
+        XCTAssertEqual(viewModel.storiesInStack[0].contents[0].body, mockStorytimeModel.storyA.contents[0].body)
+        XCTAssertEqual(viewModel.storiesInStack[1].contents[1].id, mockStorytimeModel.storyB.contents[1].id)
+        XCTAssertEqual(viewModel.storiesInStack[1].contents[1].body, mockStorytimeModel.storyB.contents[1].body)
     }
     
 }
