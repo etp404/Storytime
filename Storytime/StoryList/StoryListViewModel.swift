@@ -40,7 +40,7 @@ class StoryListViewModel: NSObject, ObservableObject{
     }
     
     private func shouldLike(_ story: StoryCardViewModel) -> Bool {
-        return story.translation.width > 0
+        return shouldDimiss(story) && story.translation.width > 0
     }
     
     private func updateStoriesInStack() {
