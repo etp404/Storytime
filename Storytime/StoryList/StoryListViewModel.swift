@@ -50,7 +50,6 @@ class StoryListViewModel: NSObject, ObservableObject{
                 StoryCardViewModel(storyId:story.id,
                                    title:story.title,
                                    index: index,
-                                   content: story.content[0],
                                    contents: story.contents.map{
                                     StorySectionViewModel(id: $0.id, body: $0.body)
                 })
