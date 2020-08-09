@@ -12,13 +12,11 @@ import SwiftUI
 struct StoryListView: View {
     
     private let storyTimeModel:StorytimeModel
-    private let navigation:StorytimeViewNavigation
     @ObservedObject private var viewModel: StoryListViewModel
     
     init(storyTimeModel: StorytimeModel) {
         self.storyTimeModel = storyTimeModel
         viewModel = StoryListViewModel(model:storyTimeModel, numberOfCardInStack:6, widthOfScreen: CGFloat(400))
-        navigation = StorytimeViewNavigation(storytimeModel: storyTimeModel)
     }
     
     var body: some View {
@@ -27,7 +25,6 @@ struct StoryListView: View {
                 ZStack {
                     ForEach(self.viewModel.storiesInStack, id: \.storyId) {(story:StoryCardViewModel) in
                         Card(story:story,
-                             navigation: self.navigation,
                              onSwipeComplete: {
                                 storyId in
                                 self.viewModel.swipeComplete(on: story)
@@ -47,16 +44,13 @@ struct StoryListView: View {
 }
 
 struct Card : View {
-    private let navigation:StorytimeViewNavigation
     private let onSwipeComplete:(StoryCardViewModel)->Void
     @ObservedObject private var story:StoryCardViewModel
     private let textPadding:CGFloat = 15.0
 
     init(story:StoryCardViewModel,
-         navigation:StorytimeViewNavigation,
          onSwipeComplete: @escaping (StoryCardViewModel)->Void) {
         self.story = story
-        self.navigation = navigation
         self.onSwipeComplete = onSwipeComplete
     }
     
