@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Combine
 
 class StoryListViewModel: NSObject, ObservableObject{
     
@@ -14,6 +15,9 @@ class StoryListViewModel: NSObject, ObservableObject{
     private let numberOfCardInStack:Int
     var widthOfScreen:CGFloat
     @Published var storiesInStack:[StoryCardViewModel] = []
+    var overlayText = ""
+    @Published var overlayOpacity = 0.0
+    var cancellable:AnyCancellable?
     
     init(model:StorytimeModel,
          numberOfCardInStack:Int,
@@ -53,6 +57,15 @@ class StoryListViewModel: NSObject, ObservableObject{
                                    contents: story.contents.map{
                                     StorySectionViewModel(id: $0.id, body: $0.body)
                 })
+        }
+        cancellable = storiesInStack.first?.$translation.sink() {[weak self] translation in
+            guard let widthOfScreen = self?.widthOfScreen else { return }
+            self?.overlayOpacity = Double(abs(translation.width))*2/Double(widthOfScreen)
+            if translation.width > 0 {
+                self?.overlayText = "Add to my stories"
+            } else {
+                self?.overlayText = "Dismiss"
+            }
         }
     }
 }

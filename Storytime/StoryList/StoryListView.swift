@@ -20,24 +20,28 @@ struct StoryListView: View {
     }
     
     var body: some View {
-        GeometryReader { geometry in
-            NavigationView {
-                ZStack {
-                    ForEach(self.viewModel.storiesInStack, id: \.storyId) {(story:StoryCardViewModel) in
-                        Card(story:story,
-                             onSwipeComplete: {
-                                storyId in
-                                self.viewModel.swipeComplete(on: story)
-                        })
-                            .buttonStyle(PlainButtonStyle())
-                            .animation(.spring())
-                            .offset(x: CGFloat(-story.index * 5), y: CGFloat(-story.index * 10))
-                        .zIndex(-Double(story.index))
-                    }
-                }.onAppear(perform: {
-                    self.viewModel.widthOfScreen = CGFloat(geometry.size.width)
-                })
-                .navigationBarTitle(Text("Storytime"), displayMode: .inline)
+        
+        HStack {
+            GeometryReader { geometry in
+                NavigationView {
+                    ZStack {
+                        ForEach(self.viewModel.storiesInStack, id: \.storyId) {(story:StoryCardViewModel) in
+                            Card(story:story,
+                                 onSwipeComplete: {
+                                    storyId in
+                                    self.viewModel.swipeComplete(on: story)
+                            })
+                                .buttonStyle(PlainButtonStyle())
+                                .animation(.spring())
+                                .offset(x: CGFloat(-story.index * 5), y: CGFloat(-story.index * 10))
+                                .zIndex(-Double(story.index))
+                        }
+                    }.onAppear(perform: {
+                        self.viewModel.widthOfScreen = CGFloat(geometry.size.width)
+                    })
+                        .navigationBarTitle(Text("Storytime"), displayMode: .inline)
+                }
+                .overlay(Text(self.viewModel.overlayText).opacity(self.viewModel.overlayOpacity), alignment: .center)
             }
         }
     }
@@ -87,7 +91,8 @@ struct Card : View {
                 .gesture(
                     DragGesture()
                         .onChanged { gesture in
-                            self.story.translation.width = gesture.translation.width
+                            print(self.story)
+                            self.story.translation = CGSize(width: gesture.translation.width, height:CGFloat(0))
                     }.onEnded { gesture in
                         self.onSwipeComplete(self.story)
                     }
@@ -97,3 +102,9 @@ struct Card : View {
 }
 
 
+
+struct StoryListView_Previews: PreviewProvider {
+    static var previews: some View {
+        StoryListView(storyTimeModel: StubbedStorytimeModel())
+    }
+}
