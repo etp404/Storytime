@@ -20,12 +20,7 @@ struct MyStoriesStoryVM {
 
 class MyStoriesViewModel: ObservableObject {
     var storytimeModel:StorytimeModel
-    @Published var myStories:[MyStoriesStoryVM] {
-        didSet {
-            print(myStories)
-        }
-    }
-    
+    @Published var myStories:[MyStoriesStoryVM]
     init(model:StorytimeModel) {
         self.storytimeModel = model
         myStories = storytimeModel.myStories.map {

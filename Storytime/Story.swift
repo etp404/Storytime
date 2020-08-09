@@ -19,12 +19,13 @@ struct Story {
     let content:[String]
     let contents:[StorySection]
     
-    init(title:String,
+    init(id:UUID = UUID(),
+         title:String,
          content:[String] = ["Section 1", "Section 2"],
          contents:[StorySection] = [StorySection(id:UUID(), body: "")]) {
-        self.id = UUID.init()
+        self.id = id
         self.title = title
-        self.content = content
+        self.content = ["", ""]
         self.contents = contents
     }
 }

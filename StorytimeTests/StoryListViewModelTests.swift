@@ -27,8 +27,8 @@ class StoryListViewModelTests: XCTestCase {
   
     func testGivenModelReturnsStories_thenStoriesCanBeReturned() throws {
         XCTAssertEqual(viewModel.storiesInStack.count, 3)
-        XCTAssertEqual(viewModel.storiesInStack[0].title, "A")
-        XCTAssertEqual(viewModel.storiesInStack[1].title, "B")
+        XCTAssertEqual(viewModel.storiesInStack[0].title, "Title A")
+        XCTAssertEqual(viewModel.storiesInStack[1].title, "Title B")
     }
     
     func testGivenCardIsAtFront_WhenItIsMovedMoreThanHalfWayAcrossScreen_ThenitIsDismissedFromStack() {

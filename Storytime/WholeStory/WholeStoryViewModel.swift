@@ -1,25 +1,25 @@
 //
-//  WholeStoryViewModel.swift
+//  StorytimeModel2.swift
 //  Storytime
 //
-//  Created by Matthew Mould on 06/06/2020.
+//  Created by Matthew Mould on 09/08/2020.
 //  Copyright © 2020 Matthew Mould. All rights reserved.
 //
 
-import UIKit
+import Foundation
 
 struct WholeStoryViewModel {
-    let story:Story
+    
+    let id:UUID
+    let storyModel:StorytimeModel
     
     var title:String {
         get {
-            story.title
+            storyModel.story(id: id).title
         }
     }
     
-    var content:[String] {
-        get {
-            story.content
-        }
+    var contentStrings: [String] {
+        storyModel.story(id: id).contents.map{$0.body}
     }
 }

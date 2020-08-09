@@ -12,20 +12,23 @@ import XCTest
 class WholeStoryViewModelTest: XCTestCase {
 
     let mockStorytimeModel = MockStorytimeModel()
-    var storytimeViewNavigation: StorytimeViewNavigation!
     
     override func setUp() {
         self.continueAfterFailure = true;
-        storytimeViewNavigation = StorytimeViewNavigation(storytimeModel: mockStorytimeModel)
     }
     
     func testTitleIsSet() {
-        XCTAssertEqual(storytimeViewNavigation.wholeStoryViewModel(id: mockStorytimeModel.storyA.id).title, mockStorytimeModel.storyA.title)
+        let wholeStoryViewModel2 = WholeStoryViewModel(id:UUID(uuidString: "E621E1F8-C36C-495A-93FC-0C247A3E6E5F")!, storyModel: mockStorytimeModel)
+        XCTAssertEqual(wholeStoryViewModel2.title,
+                       "Title A")
     }
-    
+
     func testAssertContentIsReturned() {
-        XCTAssertEqual(storytimeViewNavigation.wholeStoryViewModel(id: mockStorytimeModel.storyB.id).content[0], mockStorytimeModel.storyB.content[0])
-        XCTAssertEqual(storytimeViewNavigation.wholeStoryViewModel(id: mockStorytimeModel.storyB.id).content[1], mockStorytimeModel.storyB.content[1])
+        let wholeStoryViewModel2 = WholeStoryViewModel(id:UUID(uuidString: "E621E1F8-C36C-495A-93FC-0C247A3E6E5F")!, storyModel: mockStorytimeModel)
+        XCTAssertEqual(wholeStoryViewModel2.contentStrings[0],
+                       "Section A1")
+        XCTAssertEqual(wholeStoryViewModel2.contentStrings[1],
+                       "Section A2")
     }
 
 

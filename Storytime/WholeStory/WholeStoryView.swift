@@ -20,7 +20,7 @@ struct WholeStoryView: View {
     var body: some View {
         GeometryReader { geometry in
             List {
-                ForEach(self.wholeStoryViewModel.content, id: \.self) {section in
+                ForEach(self.wholeStoryViewModel.contentStrings, id: \.self) {section in
                     Text(section)
                         .frame(width:  geometry.size.width*0.8, height:  nil)
                         .padding(.all)
@@ -31,12 +31,5 @@ struct WholeStoryView: View {
             }
             .navigationBarTitle(Text(self.wholeStoryViewModel.title), displayMode: .inline)
         }
-    }
-}
-
-struct WholeStoryView_Previews: PreviewProvider {
-    static var previews: some View {
-        
-        WholeStoryView(wholeStoryViewModel: WholeStoryViewModel(story:Story(title:"A title")))
     }
 }

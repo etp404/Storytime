@@ -11,18 +11,18 @@ import SwiftUI
 struct MyStoriesView: View {
     
     @ObservedObject private var viewModel: MyStoriesViewModel
-    private let navigation:StorytimeViewNavigation
-
+    private let storyTimeModel: StorytimeModel
+    
     init(storyTimeModel: StorytimeModel) {
         viewModel = MyStoriesViewModel(model:storyTimeModel)
-        navigation = StorytimeViewNavigation(storytimeModel: storyTimeModel)
+        self.storyTimeModel = storyTimeModel
     }
     
     var body: some View {
         NavigationView {
             List {
                 ForEach(viewModel.myStories, id: \.id) {story in
-                    NavigationLink(destination: WholeStoryView(wholeStoryViewModel: self.navigation.wholeStoryViewModel(id: story.id))) {
+                    NavigationLink(destination: WholeStoryView(wholeStoryViewModel: WholeStoryViewModel(id: story.id, storyModel: self.storyTimeModel))) {
                         Text(story.title)
                     }
                 }
