@@ -93,7 +93,7 @@ struct Card : View {
                 .gesture(
                     DragGesture()
                         .onChanged { gesture in
-                            self.story.translation = gesture.translation
+                            self.story.translation.width = gesture.translation.width
                     }.onEnded { gesture in
                         self.onSwipeComplete(self.story)
                     }
