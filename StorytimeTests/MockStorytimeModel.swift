@@ -13,16 +13,12 @@ class MockStorytimeModel {
     
     let storyA = Story(id: UUID(uuidString: "E621E1F8-C36C-495A-93FC-0C247A3E6E5F")!,
                        title:"Title A",
-                       content: ["Section A1",
-                                 "Section A2"],
                        contents: [StorySection(id: UUID(),
                                                body: "Section A1"),
                                   StorySection(id: UUID(),
                                                body: "Section A2")])
     let storyB = Story(id: UUID(uuidString: "E621E1F8-C36C-495A-93FC-0C247A3E6E5D")!,
                        title:"Title B",
-                       content: ["Section B1",
-                                 "Section B2"],
                        contents: [StorySection(id: UUID(),
                                                body: "Section B1"),
                                   StorySection(id: UUID(),
