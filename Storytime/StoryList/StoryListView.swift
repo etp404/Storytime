@@ -41,7 +41,12 @@ struct StoryListView: View {
                     })
                         .navigationBarTitle(Text("Storytime"), displayMode: .inline)
                 }
-                .overlay(Text(self.viewModel.overlayText).opacity(self.viewModel.overlayOpacity), alignment: .center)
+                .overlay(
+                    Text(self.viewModel.overlayText)
+                        .background(Color.white)
+                        .foregroundColor(Color.black)
+                        .opacity(self.viewModel.overlayOpacity),
+                    alignment: .center)
             }
         }
     }
