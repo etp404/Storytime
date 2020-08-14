@@ -105,6 +105,13 @@ class StoryListViewModelTests: XCTestCase {
         XCTAssertEqual(viewModel.overlayOpacity, 1)
         XCTAssertEqual(viewModel.overlayText, "Add to my stories")
     }
+
+    func testGivenCardIsSomeDistanceFromTheCentreToTheLeft_OverlayIsTheSameDistanceFromTheLeft() {
+        let someDistance = 20.0
+        viewModel.storiesInStack[0].translation = CGSize(width:-someDistance, height:0.0)
+
+        XCTAssertEqual(viewModel.overlayTranslation, someDistance)
+    }
     
     func testGivenCardIsHalfWayAcrossToTheRight_OverlayIsShown() {
         viewModel.storiesInStack[0].translation = CGSize(width:-widthOfScreen/2.0, height:0.0)
