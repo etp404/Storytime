@@ -46,8 +46,13 @@ struct StoryListView: View {
                 }
                 .overlay(
                     Text(self.viewModel.overlayText)
+                        .multilineTextAlignment(.center)
+                        .padding(.all, 10)
+                        .frame(width: nil)
                         .background(Color.white)
                         .foregroundColor(Color.black)
+                        .cornerRadius(10)
+                        .shadow(radius: 5)
                         .opacity(self.viewModel.overlayOpacity),
                     alignment: .center)
             }
@@ -113,6 +118,9 @@ struct Card : View {
 
 struct StoryListView_Previews: PreviewProvider {
     static var previews: some View {
-        StoryListView(storyTimeModel: StubbedStorytimeModel())
+        let vm = StoryListViewModel(model: StubbedStorytimeModel(), numberOfCardInStack:6, widthOfScreen:300)
+        vm.overlayText = "hello"
+        vm.overlayOpacity = 1.0
+        return StoryListView(viewModel: vm)
     }
 }
