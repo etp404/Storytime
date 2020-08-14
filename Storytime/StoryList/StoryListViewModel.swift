@@ -62,10 +62,11 @@ class StoryListViewModel: NSObject, ObservableObject{
         cancellable = storiesInStack.first?.$translation.sink() {[weak self] translation in
             guard let widthOfScreen = self?.widthOfScreen else { return }
             self?.overlayOpacity = Double(abs(translation.width))*2/Double(widthOfScreen)
-            self?.overlayTranslation = -Double(translation.width)
             if translation.width > 0 {
                 self?.overlayText = "Add to my stories"
+                self?.overlayTranslation = Double(widthOfScreen - translation.width)
             } else {
+                self?.overlayTranslation = -Double(translation.width)
                 self?.overlayText = "Dismiss"
             }
         }
