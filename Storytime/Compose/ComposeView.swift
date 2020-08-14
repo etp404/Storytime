@@ -9,13 +9,29 @@
 import SwiftUI
 
 struct ComposeView: View {
+
+    @State var text:String
+
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        NavigationView {
+            VStack {
+                TextView(text: $text)
+                    .cornerRadius(20)
+                    .padding(.all, 20)
+                    .shadow(radius: 5)
+
+                Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/) {
+                    Text("Submit")
+                }
+                .padding(.bottom, 20)
+            }
+            .navigationBarTitle(Text("Start Your Story"), displayMode: .inline)
+        }
     }
 }
 
 struct ComposeView_Previews: PreviewProvider {
     static var previews: some View {
-        ComposeView()
+        ComposeView(text:"Some story")
     }
 }

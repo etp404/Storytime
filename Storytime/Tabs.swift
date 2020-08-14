@@ -23,7 +23,7 @@ struct Tabs: View {
                     Image(systemName: "star.fill")
             }
 
-            ComposeView()
+            ComposeView(text: "")
                 .tabItem {
                     Image(systemName: "square.and.pencil")
             }
