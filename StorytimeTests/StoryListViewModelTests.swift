@@ -103,7 +103,7 @@ class StoryListViewModelTests: XCTestCase {
         viewModel.storiesInStack[0].translation = CGSize(width:widthOfScreen/2.0, height:0.0)
         
         XCTAssertEqual(viewModel.overlayOpacity, 1)
-        XCTAssertEqual(viewModel.overlayText, "Add to my stories")
+        XCTAssertEqual(viewModel.overlayText, "Save")
     }
 
     func testGivenCardIsSomeDistanceFromTheCentreToTheLeft_OverlayIsTheSameDistanceFromTheLeft() {

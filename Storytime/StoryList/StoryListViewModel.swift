@@ -64,7 +64,7 @@ class StoryListViewModel: NSObject, ObservableObject{
             self?.overlayOpacity = Double(abs(translation.width))*2/Double(widthOfScreen)
             print(translation.width/widthOfScreen)
             if translation.width >= 0 {
-                self?.overlayText = "Add to my stories"
+                self?.overlayText = "Save"
                 self?.overlayTranslation = widthOfScreen - translation.width
             } else {
                 self?.overlayText = "Dismiss"
