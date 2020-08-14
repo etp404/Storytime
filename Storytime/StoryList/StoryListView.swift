@@ -11,12 +11,15 @@ import SwiftUI
 
 struct StoryListView: View {
     
-    private let storyTimeModel:StorytimeModel
     @ObservedObject private var viewModel: StoryListViewModel
     
     init(storyTimeModel: StorytimeModel) {
-        self.storyTimeModel = storyTimeModel
-        viewModel = StoryListViewModel(model:storyTimeModel, numberOfCardInStack:6, widthOfScreen: CGFloat(400))
+        self.init(viewModel: StoryListViewModel(model:storyTimeModel, numberOfCardInStack:6, widthOfScreen: CGFloat(400)))
+
+    }
+
+    init(viewModel: StoryListViewModel) {
+         self.viewModel = viewModel
     }
     
     var body: some View {
