@@ -87,7 +87,7 @@ struct Card : View {
                     Spacer()
                 }
                 .frame(width:  geometry.size.width*0.8, height:  geometry.size.height*0.8, alignment: .center)
-                .background(Color.blue)
+                .background(Color.white)
                 .cornerRadius(10)
                 .shadow(radius: 5)
                 .offset(x: self.story.translation.width, y: self.story.translation.height)

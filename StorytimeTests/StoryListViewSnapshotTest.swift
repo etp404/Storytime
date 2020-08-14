@@ -13,8 +13,8 @@ import SnapshotTesting
 class StoryListViewSnapshotTest: XCTestCase {
 
     func testStoryListView() throws {
-        let vm = MockStorytimeModel()
-        let storyListView = StoryListView(storyTimeModel: vm)
+        let model = MockStorytimeModel()
+        let storyListView = StoryListView(storyTimeModel: model)
 
         assertSnapshot(matching: storyListView, as: .image)
     }
