@@ -107,17 +107,38 @@ class StoryListViewModelTests: XCTestCase {
     }
 
     func testGivenCardIsSomeDistanceFromTheCentreToTheLeft_OverlayIsTheSameDistanceFromTheLeft() {
-        let someDistance = 20.0
+        let someDistance = CGFloat(20.0)
+        let someCardWidth = CGFloat(50.0)
+        viewModel.storiesInStack[0].width = someCardWidth
         viewModel.storiesInStack[0].translation = CGSize(width:-someDistance, height:0.0)
 
-        XCTAssertEqual(viewModel.overlayTranslation, someDistance)
+        XCTAssertEqual(viewModel.overlayTranslation, someDistance-someCardWidth)
+    }
+
+    func testGivenCardIsAtCentreToTheRight_OverlayIsOffscreen() {
+        let someDistance = CGFloat(0.0)
+        let someCardWidth = CGFloat(50.0)
+        viewModel.storiesInStack[0].width = someCardWidth
+        viewModel.storiesInStack[0].translation = CGSize(width:someDistance, height:0.0)
+
+        XCTAssertEqual(viewModel.overlayTranslation, CGFloat(widthOfScreen))
     }
 
     func testGivenCardIsSomeDistanceFromTheCentreToTheRight_OverlayIsTheSameDistanceFromTheRight() {
-        let someDistance = 20.0
+        let someDistance = CGFloat(20.0)
+        let someCardWidth = CGFloat(50.0)
+        viewModel.storiesInStack[0].width = someCardWidth
         viewModel.storiesInStack[0].translation = CGSize(width:someDistance, height:0.0)
 
-        XCTAssertEqual(viewModel.overlayTranslation, widthOfScreen - someDistance)
+        XCTAssertEqual(viewModel.overlayTranslation, CGFloat(widthOfScreen) - someDistance)
+    }
+
+    func testGivenCardIsAllTheWayAcrossTheScreenToTheRight_OverlayAt0() {
+        let someCardWidth = CGFloat(50.0)
+        viewModel.storiesInStack[0].width = someCardWidth
+        viewModel.storiesInStack[0].translation = CGSize(width:widthOfScreen, height:0.0)
+
+        XCTAssertEqual(viewModel.overlayTranslation, CGFloat(0.0))
     }
     
     func testGivenCardIsHalfWayAcrossToTheRight_OverlayIsShown() {

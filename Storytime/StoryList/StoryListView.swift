@@ -53,7 +53,8 @@ struct StoryListView: View {
                         .foregroundColor(Color.black)
                         .cornerRadius(10)
                         .shadow(radius: 5)
-                        .opacity(self.viewModel.overlayOpacity),
+                        .opacity(self.viewModel.overlayOpacity)
+                        .offset(x: self.viewModel.overlayTranslation, y: CGFloat(0)),
                     alignment: .center)
             }
         }
@@ -104,7 +105,7 @@ struct Card : View {
                 .gesture(
                     DragGesture()
                         .onChanged { gesture in
-                            print(self.story)
+                            self.story.width = geometry.size.width*0.8
                             self.story.translation = CGSize(width: gesture.translation.width, height:CGFloat(0))
                     }.onEnded { gesture in
                         self.onSwipeComplete(self.story)

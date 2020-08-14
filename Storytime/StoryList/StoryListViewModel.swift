@@ -17,7 +17,7 @@ class StoryListViewModel: NSObject, ObservableObject{
     @Published var storiesInStack:[StoryCardViewModel] = []
     var overlayText = ""
     @Published var overlayOpacity = 0.0
-    @Published var overlayTranslation = 0.0
+    @Published var overlayTranslation = CGFloat(0.0)
     var cancellable:AnyCancellable?
     
     init(model:StorytimeModel,
@@ -62,12 +62,14 @@ class StoryListViewModel: NSObject, ObservableObject{
         cancellable = storiesInStack.first?.$translation.sink() {[weak self] translation in
             guard let widthOfScreen = self?.widthOfScreen else { return }
             self?.overlayOpacity = Double(abs(translation.width))*2/Double(widthOfScreen)
-            if translation.width > 0 {
+            print(translation.width/widthOfScreen)
+            if translation.width >= 0 {
                 self?.overlayText = "Add to my stories"
-                self?.overlayTranslation = Double(widthOfScreen - translation.width)
+                self?.overlayTranslation = widthOfScreen - translation.width
             } else {
-                self?.overlayTranslation = -Double(translation.width)
                 self?.overlayText = "Dismiss"
+                guard let cardWidth = self?.storiesInStack.first?.width else { return }
+                self?.overlayTranslation = abs(translation.width)-cardWidth
             }
         }
     }

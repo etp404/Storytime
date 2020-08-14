@@ -19,6 +19,7 @@ class StoryCardViewModel : NSObject, ObservableObject {
     let index:Int
     let contents:[StorySectionViewModel]
     @Published var translation:CGSize
+    var width:CGFloat?
     
     init(storyId:UUID,
          title:String,
