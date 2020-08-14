@@ -8,6 +8,8 @@
 
 import XCTest
 import SnapshotTesting
+import SwiftUI
+
 @testable import Storytime
 
 class StoryListViewSnapshotTest: XCTestCase {
@@ -16,8 +18,14 @@ class StoryListViewSnapshotTest: XCTestCase {
         let model = MockStorytimeModel()
         let storyListView = StoryListView(storyTimeModel: model)
 
-        assertSnapshot(matching: storyListView, as: .image)
+        assertSnapshot(matching: storyListView.toVC(), as: .image(on: .iPhoneSe))
     }
+}
 
-
+extension View {
+    func toVC() -> UIViewController {
+        let vc = UIHostingController(rootView: self)
+        vc.view.frame = UIScreen.main.bounds
+        return vc
+    }
 }
