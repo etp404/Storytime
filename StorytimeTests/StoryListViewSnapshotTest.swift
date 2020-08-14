@@ -15,17 +15,14 @@ import SwiftUI
 class StoryListViewSnapshotTest: XCTestCase {
 
     func testStoryListView() throws {
+        let device = UIDevice.current.name
+        if device != "iPhone 11" {
+            fatalError("Switch to using iPhone 11 for these tests.")
+        }
+
         let model = MockStorytimeModel()
         let storyListView = StoryListView(storyTimeModel: model)
 
-        assertSnapshot(matching: storyListView.toVC(), as: .image(on: .iPhoneSe))
-    }
-}
-
-extension View {
-    func toVC() -> UIViewController {
-        let vc = UIHostingController(rootView: self)
-        vc.view.frame = UIScreen.main.bounds
-        return vc
+        assertSnapshot(matching: storyListView, as: .image)
     }
 }
