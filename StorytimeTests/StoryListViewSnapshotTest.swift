@@ -37,4 +37,16 @@ class StoryListViewSnapshotTest: XCTestCase {
 
         assertSnapshot(matching: storyListView, as: .image)
     }
+
+    func testAddToMyStoriesIsShown() throws {
+        let vm = StoryListViewModel(model: MockStorytimeModel(), numberOfCardInStack: 6, widthOfScreen: 400)
+        vm.overlayOpacity = 0.6
+        vm.overlayText = "Some text"
+
+        let storyListView = StoryListView(viewModel: vm)
+
+        assertSnapshot(matching: storyListView, as: .image)
+    }
+
+
 }
