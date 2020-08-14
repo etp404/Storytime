@@ -13,7 +13,7 @@ struct ComposeView: View {
     @State var story: String = ""
 
     var body: some View {
-        TextField("Compose story...", text:$story)
+        TextEditor("Compose story...", text:$story)
     }
 }
 
