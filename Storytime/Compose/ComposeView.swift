@@ -9,11 +9,8 @@
 import SwiftUI
 
 struct ComposeView: View {
-
-    @State var story: String = ""
-
     var body: some View {
-        TextField("Compose story...", text:$story)
+        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
     }
 }
 

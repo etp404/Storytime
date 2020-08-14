@@ -13,4 +13,4 @@ jobs:
     steps:
     - uses: actions/checkout@master
     - name: Start xcodebuild test
-      run: xcodebuild -project Storytime.xcodeproj -scheme Storytime -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone 11,OS=14.0' test
+      run: xcodebuild -project Storytime.xcodeproj -scheme Storytime -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone 11,OS=13.6' test
