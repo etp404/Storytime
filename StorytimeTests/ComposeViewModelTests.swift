@@ -9,22 +9,6 @@
 import XCTest
 @testable import Storytime
 
-class ComposeViewModel {
-    let model: StorytimeModel
-    let buttonTitle = "Submit"
-    var storyTitle:String?
-    var storyBody:String?
-
-    init(model: StorytimeModel) {
-        self.model = model
-    }
-
-    func submitPressed() {
-        guard let storyBody = storyBody, let storyTitle = storyTitle else { return }
-        model.submitStory(story: Story(id: UUID(), title: storyTitle, contents: [StorySection(id: UUID(), body: storyBody)]))
-    }
-}
-
 class ComposeViewModelTests: XCTestCase {
 
     func testSubmitButtonStringIsAsExpected() throws {
