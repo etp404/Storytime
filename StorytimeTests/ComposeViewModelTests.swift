@@ -12,6 +12,7 @@ import XCTest
 class ComposeViewModel {
     let model: StorytimeModel
     let buttonTitle = "Submit"
+    var storyTitle:String?
     var storyBody:String?
 
     init(model: StorytimeModel) {
@@ -19,8 +20,8 @@ class ComposeViewModel {
     }
 
     func submitPressed() {
-        guard let storyBody = storyBody else { return }
-        model.submitStory(story: Story(id: UUID(), title: "", contents: [StorySection(id: UUID(), body: storyBody)]))
+        guard let storyBody = storyBody, let storyTitle = storyTitle else { return }
+        model.submitStory(story: Story(id: UUID(), title: storyTitle, contents: [StorySection(id: UUID(), body: storyBody)]))
     }
 }
 
@@ -32,17 +33,20 @@ class ComposeViewModelTests: XCTestCase {
     }
 
     func testWhenSubmitIsTapped_StoryIsSentToModel() throws {
-        let someStory = "Once upon a time"
+        let someStoryTitle = "Once upon a time"
+        let someStoryBody = "Once upon a time"
         let model = MockStorytimeModel()
         let composeViewModel = ComposeViewModel(model: model)
 
-        composeViewModel.storyBody = someStory
+        composeViewModel.storyTitle = someStoryTitle
+        composeViewModel.storyBody = someStoryBody
         composeViewModel.submitPressed()
 
         let story = try XCTUnwrap(model.submittedStory)
 
         XCTAssertEqual(story.contents.count, 1)
-        XCTAssertEqual(story.contents[0].body, someStory)
+        XCTAssertEqual(story.title, someStoryTitle)
+        XCTAssertEqual(story.contents[0].body, someStoryBody)
     }
 
 
