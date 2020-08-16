@@ -20,6 +20,8 @@ class ComposeViewModel : ObservableObject {
     
     func submitPressed() {
         model.submitStory(story: Story(id: UUID(), title: storyTitle, contents: [StorySection(id: UUID(), body: storyBody)]))
+        storyTitle = ""
+        storyBody = ""
     }
     
 }
