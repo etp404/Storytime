@@ -8,18 +8,17 @@
 
 import UIKit
 
-class ComposeViewModel {
+class ComposeViewModel : ObservableObject {
     let model: StorytimeModel
     let buttonTitle = "Submit"
-    var storyTitle:String?
-    var storyBody:String?
+    var storyTitle:String = ""
+    var storyBody:String = ""
     
     init(model: StorytimeModel) {
         self.model = model
     }
     
     func submitPressed() {
-        guard let storyBody = storyBody, let storyTitle = storyTitle else { return }
         model.submitStory(story: Story(id: UUID(), title: storyTitle, contents: [StorySection(id: UUID(), body: storyBody)]))
     }
     

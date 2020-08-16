@@ -10,24 +10,23 @@ import SwiftUI
 
 struct ComposeView: View {
 
-    var viewModel: ComposeViewModel
-    @State var text:String
+    @ObservedObject var viewModel: ComposeViewModel
 
     var body: some View {
         NavigationView {
             VStack {
-                TextField("", text: $text)
+                TextField("", text: $viewModel.storyTitle)
                     .textFieldStyle(RoundedBorderTextFieldStyle())
                     .padding(.all, 20)
 
-                TextView(text: $text)
+                TextView(text: $viewModel.storyBody)
                     .cornerRadius(20)
                     .padding(.bottom, 20)
                     .padding(.leading, 20)
                     .padding(.trailing, 20)
                     .shadow(radius: 5)
 
-                Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/) {
+                Button(action: viewModel.submitPressed) {
                     Text("Submit")
                 }
                 .padding(.bottom, 20)
@@ -39,6 +38,6 @@ struct ComposeView: View {
 
 struct ComposeView_Previews: PreviewProvider {
     static var previews: some View {
-        ComposeView(viewModel: ComposeViewModel(model: StubbedStorytimeModel()), text:"Some story")
+        ComposeView(viewModel: ComposeViewModel(model: StubbedStorytimeModel()))
     }
 }
