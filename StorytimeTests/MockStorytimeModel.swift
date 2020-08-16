@@ -66,10 +66,15 @@ class MockStorytimeModel {
     var dismissedStoryIds:[UUID] = []
     var savedStories:[UUID] = []
     var internalMyStoriesChangedCallback: (() -> Void)?
-    
+    var submittedStory:Story?
+
 }
 
 extension MockStorytimeModel : StorytimeModel {
+    func submitStory(story: Story) {
+        self.submittedStory = story
+    }
+
     var myStoriesChanged: (() -> Void)? {
         get {
             internalMyStoriesChangedCallback

@@ -9,6 +9,10 @@
 import UIKit
 
 class StubbedStorytimeModel: StorytimeModel {
+    func submitStory(story: Story) {
+        
+    }
+
     var myStoriesChanged: (() -> Void)?
     
     
