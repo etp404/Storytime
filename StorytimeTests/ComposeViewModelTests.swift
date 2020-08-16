@@ -7,9 +7,12 @@
 //
 
 import XCTest
+import Combine
 @testable import Storytime
 
 class ComposeViewModelTests: XCTestCase {
+    
+    var cancellable: Cancellable?
     
     func testSubmitButtonStringIsAsExpected() throws {
         let composeViewModel = ComposeViewModel(model: MockStorytimeModel())
@@ -45,6 +48,36 @@ class ComposeViewModelTests: XCTestCase {
         
         XCTAssertEqual(composeViewModel.storyTitle, "")
         XCTAssertEqual(composeViewModel.storyBody, "")
+    }
+    
+    func testViewModelTitleCanBeObserved() throws {
+        let model = MockStorytimeModel()
+        let composeViewModel = ComposeViewModel(model: model)
+        composeViewModel.storyTitle = "Once upon a time"
+        composeViewModel.storyBody = "Once upon a time"
+        var capturedStoryTitle:String?
+        cancellable = composeViewModel.$storyTitle.sink() {storyTitle in
+            capturedStoryTitle = storyTitle
+        }
+        composeViewModel.submitPressed()
+        
+        let unwrappedCapturedStoryTitle = try XCTUnwrap(capturedStoryTitle)
+        XCTAssertEqual(unwrappedCapturedStoryTitle, "")
+    }
+    
+    func testViewModelBodyCanBeObserved() throws {
+        let model = MockStorytimeModel()
+        let composeViewModel = ComposeViewModel(model: model)
+        composeViewModel.storyTitle = "Once upon a time"
+        composeViewModel.storyBody = "Once upon a time"
+        var capturedStoryBody:String?
+        cancellable = composeViewModel.$storyBody.sink() {storyBody in
+            capturedStoryBody = storyBody
+        }
+        composeViewModel.submitPressed()
+        
+        let unwrappedCapturedStoryTitle = try XCTUnwrap(capturedStoryBody)
+        XCTAssertEqual(unwrappedCapturedStoryTitle, "")
     }
     
     
