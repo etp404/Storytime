@@ -11,8 +11,8 @@ import UIKit
 class ComposeViewModel : ObservableObject {
     let model: StorytimeModel
     let buttonTitle = "Submit"
-    var storyTitle:String = ""
-    var storyBody:String = ""
+    @Published var storyTitle:String = ""
+    @Published var storyBody:String = ""
     
     init(model: StorytimeModel) {
         self.model = model

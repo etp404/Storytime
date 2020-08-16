@@ -10,7 +10,7 @@ import UIKit
 
 class StubbedStorytimeModel: StorytimeModel {
     func submitStory(story: Story) {
-        storyList.append(story)
+        allStories.append(story)
         myStoryIds.append(story.id)
     }
 
@@ -20,7 +20,7 @@ class StubbedStorytimeModel: StorytimeModel {
     var myStories: [Story] {
         get {
             myStoryIds.map{ id in
-                storiesAtStary.first(where: { story in
+                allStories.first(where: { story in
                     story.id == id
                 }) ?? Story(title:"Unknown")
             }
@@ -53,6 +53,8 @@ class StubbedStorytimeModel: StorytimeModel {
         Story(title:"Story N"),
         Story(title:"Story O")]
     
+    lazy private var allStories = storiesAtStary
+    
     lazy private var storyList = storiesAtStary
     
     func stories() -> [Story] {
@@ -60,7 +62,7 @@ class StubbedStorytimeModel: StorytimeModel {
     }
     
     func story(id: UUID) -> Story {
-        return storiesAtStary.first(where: {story in
+        return allStories.first(where: {story in
             story.id == id
         }) ?? Story(title: "")
     }
