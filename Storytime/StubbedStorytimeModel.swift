@@ -10,7 +10,8 @@ import UIKit
 
 class StubbedStorytimeModel: StorytimeModel {
     func submitStory(story: Story) {
-        
+        storyList.append(story)
+        myStoryIds.append(story.id)
     }
 
     var myStoriesChanged: (() -> Void)?
