@@ -12,15 +12,15 @@ import XCTest
 class ComposeViewModel {
     let model: StorytimeModel
     let buttonTitle = "Submit"
-    var story:String?
+    var storyBody:String?
 
     init(model: StorytimeModel) {
         self.model = model
     }
 
     func submitPressed() {
-        guard let story = story else { return }
-        model.submitStory(story: Story(id: UUID(), title: "", contents: [StorySection(id: UUID(), body: story)]))
+        guard let storyBody = storyBody else { return }
+        model.submitStory(story: Story(id: UUID(), title: "", contents: [StorySection(id: UUID(), body: storyBody)]))
     }
 }
 
@@ -36,7 +36,7 @@ class ComposeViewModelTests: XCTestCase {
         let model = MockStorytimeModel()
         let composeViewModel = ComposeViewModel(model: model)
 
-        composeViewModel.story = someStory
+        composeViewModel.storyBody = someStory
         composeViewModel.submitPressed()
 
         let story = try XCTUnwrap(model.submittedStory)
